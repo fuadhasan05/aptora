@@ -44,19 +44,18 @@ const Navbar = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 className="p-2 border border-neutral-200 flex items-center gap-2 rounded-full cursor-pointer hover:shadow-md transition"
               >
-                {user ? (
+                <AiOutlineMenu />
+                <div className="hidden md:block">
+                  {/* Avatar */}
                   <img
                     className="rounded-full"
                     referrerPolicy="no-referrer"
-                    src={user.photoURL ? user.photoURL : avatarImg}
+                    src={user && user.photoURL ? user.photoURL : avatarImg}
                     alt="profile"
-                    height="32"
-                    width="32"
+                    height="30"
+                    width="30"
                   />
-                ) : (
-                  <FiLogIn className="text-xl" />
-                )}
-                <AiOutlineMenu />
+                </div>
               </div>
               {/* Dropdown */}
               {isOpen && (
