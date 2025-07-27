@@ -14,6 +14,7 @@ import AgreementRequests from '../pages/Dashboard/Admin/AgreementRequests'
 import ManageCoupons from '../pages/Dashboard/Admin/ManageCoupons'
 import AdminProfile from '../pages/Dashboard/Admin/AdminProfile'
 import ApartmentDetails from '../pages/ApartmentDetails/ApartmentDetails'
+import Apartments from '../components/Home/Apartments'
 
 export const router = createBrowserRouter([
   {
@@ -26,8 +27,8 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/apartment/:id',
-        element: <ApartmentDetails></ApartmentDetails>,
+        path: '/apartment',
+        element: <Apartments />,
       },
     ],
   },
