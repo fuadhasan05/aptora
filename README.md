@@ -1,12 +1,40 @@
-# React + Vite
+# APTORA - Building Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose  
+APTORA is a comprehensive Building Management System designed to simplify and automate the management of apartments, agreements, users, and administrative operations. It offers an intuitive interface for both admins and users to efficiently handle apartment listings, agreement requests, coupons, and more.
 
-Currently, two official plugins are available:
+## Live URL  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Key Features  
+- **User & Admin Dashboards**  
+  - Admins manage apartments, agreements, coupons, and announcements.  
+  - Users browse apartments and send agreement requests.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Apartment Management**  
+  - View apartment details including floor, block, apartment number, and rent.  
+  - Add, update, and delete apartments.
+
+- **Agreement Requests**  
+  - Users can request agreements for apartments.  
+  - Admins review and accept/reject requests.
+
+- **Coupon Management**  
+  - Admins can create discount coupons with code, description, and discount percentage.
+
+- **Admin Profile & Statistics**  
+  - Displays total rooms, availability percentages, user and member counts.
+
+- **Responsive Design**  
+  - Mobile and desktop optimized with TailwindCSS.
+
+## NPM Packages Used  
+- react  
+- react-router-dom  
+- tailwindcss  
+- @headlessui/react  
+- react-icons  
+- axios  
+- react-hook-form  
+- firebase 
+- mongoDB 
