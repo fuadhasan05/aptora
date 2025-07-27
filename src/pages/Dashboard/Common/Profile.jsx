@@ -25,7 +25,7 @@ const Profile = () => {
 
           {/* Role Tag */}
           <p className="p-2 px-4 text-xs text-white bg-blue-500 rounded-full">
-            Customer
+            {user.role}
           </p>
 
           {/* User ID */}

@@ -1,4 +1,4 @@
-import CustomerOrderDataRow from '../../../components/Dashboard/TableRows/CustomerOrderDataRow'
+import MemberOrderDataRow from "../../../components/Dashboard/TableRows/MemberOrderDataRow";
 
 const MyOrders = () => {
   return (
@@ -55,7 +55,7 @@ const MyOrders = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <CustomerOrderDataRow />
+                  <MemberOrderDataRow></MemberOrderDataRow>
                 </tbody>
               </table>
             </div>
@@ -63,7 +63,7 @@ const MyOrders = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default MyOrders
+export default MyOrders;
