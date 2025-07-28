@@ -21,7 +21,7 @@ const Banner = () => {
   }, [images.length]);
 
   return (
-    <div className="relative w-full h-[400px] md:h-[550px] overflow-hidden rounded-none shadow-lg -mt-[80px]">
+    <div className="relative w-full h-[400px] md:h-[650px] overflow-hidden rounded-none shadow-lg -mt-[50px]">
       {/* Images */}
       {images.map((img, index) => (
         <img
@@ -39,7 +39,7 @@ const Banner = () => {
 
       {/* Banner Text */}
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-6">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-md">
+        <h2 className="text-3xl md:text-6xl font-extrabold mb-4 drop-shadow-md">
           Find Your Dream Apartment
         </h2>
         <p className="text-lg md:text-xl mb-6 max-w-2xl drop-shadow">
@@ -47,8 +47,8 @@ const Banner = () => {
           comfortable living spaces.
         </p>
         <button
-          onClick={() => navigate('/apartment')}
-          className="bg-blue-500 hover:bg-blue-700 text-white px-6 py-2 rounded-lg shadow-lg"
+          onClick={() => navigate('/apertments')}
+          className="bg-blue-500 hover:bg-blue-700 text-white px-6 py-2 rounded-lg shadow-lg cursor-pointer"
         >
           Explore Now
         </button>

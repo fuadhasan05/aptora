@@ -10,7 +10,7 @@ const LocationSection = () => {
 
       {/* Section Title */}
       <div className="relative text-center mb-16">
-        <h2 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 drop-shadow-lg">
+        <h2 className="text-5xl md:text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 drop-shadow-lg">
           Apartment Location 
         </h2>
       </div>

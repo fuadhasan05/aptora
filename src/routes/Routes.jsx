@@ -13,8 +13,7 @@ import Announcement from '../pages/Dashboard/Admin/Announcement'
 import AgreementRequests from '../pages/Dashboard/Admin/AgreementRequests'
 import ManageCoupons from '../pages/Dashboard/Admin/ManageCoupons'
 import AdminProfile from '../pages/Dashboard/Admin/AdminProfile'
-import ApartmentDetails from '../pages/ApartmentDetails/ApartmentDetails'
-import Apartments from '../components/Home/Apartments'
+import Apartments from '../pages/Apartment/Apartments'
 
 export const router = createBrowserRouter([
   {
@@ -27,8 +26,9 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/apartment',
+        path: '/apertments',
         element: <Apartments />,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/apertments`),
       },
     ],
   },

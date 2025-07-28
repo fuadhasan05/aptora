@@ -2,7 +2,7 @@ import Container from "../Container";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import avatarImg from "../../../assets/images/placeholder.jpg";
 import logo from "../../../assets/images/logo-square.png";
@@ -10,6 +10,7 @@ import logo from "../../../assets/images/logo-square.png";
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <div className="fixed w-full z-50 shadow-lg bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 text-white">
@@ -34,13 +35,21 @@ const Navbar = () => {
             <div className="flex items-center gap-8">
               <Link
                 to="/"
-                className="text-lg font-semibold hidden md:block hover:text-yellow-300 transition duration-300"
+                 className={`text-lg font-semibold hidden md:block transition duration-300 ${
+                  location.pathname === "/"
+                    ? "text-yellow-300 underline underline-offset-4 decoration-2"
+                    : "hover:text-yellow-300"
+                }`}
               >
                 Home
               </Link>
               <Link
-                to="/apartment"
-                className="text-lg font-semibold hidden md:block hover:text-yellow-300 transition duration-300"
+                to="/apertments"
+                className={`text-lg font-semibold hidden md:block transition duration-300 ${
+                  location.pathname === "/apertments"
+                    ? "text-yellow-300 underline underline-offset-4 decoration-2"
+                    : "hover:text-yellow-300"
+                }`}
               >
                 Apartment
               </Link>
@@ -82,7 +91,7 @@ const Navbar = () => {
                       Home
                     </Link>
                     <Link
-                      to="/apartment"
+                      to="/apertments"
                       className="block md:hidden px-4 py-3 hover:bg-blue-100 transition font-semibold"
                     >
                       Apartment

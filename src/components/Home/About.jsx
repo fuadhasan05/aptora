@@ -21,7 +21,7 @@ const About = () => {
       <div className="relative max-w-5xl mx-auto">
         {/* About the Building */}
         <div className="text-center mb-16 px-4 md:px-0">
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 drop-shadow-lg">
+          <h2 className="text-5xl md:text-6xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 drop-shadow-lg">
             About the Building
           </h2>
           <p className="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto text-gray-700 mb-6 tracking-wide font-serif">
@@ -40,7 +40,7 @@ const About = () => {
 
         {/* Property Types */}
         <div className="text-center">
-          <h3 className="text-3xl md:text-4xl font-bold mb-12 text-gray-800">
+          <h3 className="text-3xl md:text-4xl font-semibold mb-12 text-gray-800">
             Made for <span className="text-blue-600">mixed portfolios</span>
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 justify-items-center">

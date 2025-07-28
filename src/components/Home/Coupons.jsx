@@ -29,7 +29,7 @@ const Coupons = () => {
   return (
     <section className="py-20 bg-gradient-to-r from-blue-50 to-white ">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-20 text-gray-800">
+        <h2 className="text-5xl md:text-6xl font-semibold text-center mb-20 text-gray-800">
           Exclusive <span className="text-blue-600">Coupons</span>
         </h2>
         <div className="flex flex-col md:flex-row gap-12 justify-center overflow-hidden px-2">
