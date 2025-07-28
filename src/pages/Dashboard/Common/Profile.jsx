@@ -1,7 +1,11 @@
+import LoadingSpinner from "../../../components/Shared/LoadingSpinner";
 import useAuth from "../../../hooks/useAuth";
+import useRole from "../../../hooks/useRole";
 
 const Profile = () => {
   const { user } = useAuth();
+  const [role, isRoleLoading] = useRole();
+  if (isRoleLoading) return <LoadingSpinner></LoadingSpinner>;
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
@@ -19,18 +23,13 @@ const Profile = () => {
             <img
               alt="profile"
               src={user.photoURL}
-              className="mx-auto object-cover rounded-full h-24 w-24 border-2 border-white"
+              className="mx-auto object-cover rounded-full h-24 w-24 border-2 border-purple-400"
             />
           </a>
 
           {/* Role Tag */}
-          <p className="p-2 px-4 text-xs text-white bg-blue-500 rounded-full">
-            {user.role}
-          </p>
-
-          {/* User ID */}
-          <p className="mt-2 text-xl font-medium text-gray-800">
-            User Id: {user.uid}
+          <p className="p-2 px-4 text-xs text-white bg-blue-500 rounded-full mt-4">
+            {role?.toUpperCase()}
           </p>
 
           {/* Basic Info */}

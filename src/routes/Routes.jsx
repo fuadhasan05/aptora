@@ -7,7 +7,6 @@ import PrivateRoute from './PrivateRoute'
 import DashboardLayout from '../layouts/DashboardLayout'
 import Profile from '../pages/Dashboard/Common/Profile'
 import MainLayout from '../layouts/MainLayout'
-import MyOrders from '../pages/Dashboard/Customer/MyOrders'
 import ManageMembers from '../pages/Dashboard/Admin/ManageMembers'
 import Announcement from '../pages/Dashboard/Admin/Announcement'
 import AgreementRequests from '../pages/Dashboard/Admin/AgreementRequests'
@@ -95,14 +94,6 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Profile />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: 'my-orders',
-        element: (
-          <PrivateRoute>
-            <MyOrders />
           </PrivateRoute>
         ),
       },

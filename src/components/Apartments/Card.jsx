@@ -1,6 +1,53 @@
+import { useNavigate } from "react-router";
+import { toast } from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
+
 const Card = ({ apartment }) => {
-  const { apartmentImage, apartmentNo, floorNo, blockName, rent, _id } =
-    apartment || {};
+  const { apartmentImage, apartmentNo, floorNo, blockName, rent, _id } = apartment || {};
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleAgreementRequest = async () => {
+    // If user is not logged in, redirect to login
+    if (!user) {
+      toast.warning("Please login to request an agreement");
+      navigate("/login");
+      return;
+    }
+
+    // Prepare agreement data
+    const agreementData = {
+      userName: user.displayName,
+      userEmail: user.email,
+      apartmentNo,
+      floorNo,
+      blockName,
+      rent,
+      status: "pending",
+      requestDate: new Date().toISOString(),
+    };
+
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/agreements`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(agreementData),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        toast.success("Your request has been submitted successfully!");
+      } else {
+        toast.error(data.message || "You have already applied for this apartment.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to submit request. Please try again later.");
+    }
+  };
 
   return (
     <div
@@ -27,7 +74,10 @@ const Card = ({ apartment }) => {
         <p className="text-gray-700 font-semibold mt-2">Rent: ৳{rent}</p>
 
         {/* Agreement Button */}
-        <button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition duration-200">
+        <button
+          onClick={handleAgreementRequest}
+          className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition duration-200"
+        >
           Request Agreement
         </button>
       </div>

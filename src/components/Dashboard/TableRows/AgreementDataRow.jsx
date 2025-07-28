@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AgreementRequests = () => {
+const AgreementDataRow = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const AgreementRequests = () => {
   );
 };
 
-export default AgreementRequests;
+export default AgreementDataRow;
