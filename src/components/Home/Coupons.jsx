@@ -32,7 +32,7 @@ const Coupons = () => {
         <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-20 text-gray-800">
           Exclusive <span className="text-blue-600">Coupons</span>
         </h2>
-        <div className="flex justify-center space-x-12 overflow-x-auto px-2">
+        <div className="flex flex-col md:flex-row gap-12 justify-center overflow-hidden px-2">
           {coupons.map(({ code, discount, description, bgColor, icon }, idx) => (
             <div
               key={idx}
