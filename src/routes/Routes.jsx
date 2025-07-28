@@ -8,11 +8,12 @@ import DashboardLayout from '../layouts/DashboardLayout'
 import Profile from '../pages/Dashboard/Common/Profile'
 import MainLayout from '../layouts/MainLayout'
 import ManageMembers from '../pages/Dashboard/Admin/ManageMembers'
-import Announcement from '../pages/Dashboard/Admin/Announcement'
 import AgreementRequests from '../pages/Dashboard/Admin/AgreementRequests'
 import ManageCoupons from '../pages/Dashboard/Admin/ManageCoupons'
 import AdminProfile from '../pages/Dashboard/Admin/AdminProfile'
 import Apartments from '../pages/Apartment/Apartments'
+import Announcement from '../pages/Dashboard/Common/Announcement'
+import MakeAnnouncement from '../pages/Dashboard/Admin/MakeAnnouncement'
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,14 @@ export const router = createBrowserRouter([
         index: true,
         element: (
           <PrivateRoute>
+            <Announcement/>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'profile',
+        element: (
+          <PrivateRoute>
             <Profile />
           </PrivateRoute>
         ),
@@ -61,7 +70,7 @@ export const router = createBrowserRouter([
         path: 'make-announcement',
         element: (
           <PrivateRoute>
-            <Announcement/>
+            <MakeAnnouncement></MakeAnnouncement>
           </PrivateRoute>
         ),
       },

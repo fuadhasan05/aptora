@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Announcement = () => {
+const MakeAnnouncement = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -69,4 +69,4 @@ const Announcement = () => {
   );
 };
 
-export default Announcement;
+export default MakeAnnouncement;

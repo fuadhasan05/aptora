@@ -7,15 +7,20 @@ import useAuth from "../../../hooks/useAuth";
 import AdminMenu from "./Menu/AdminMenu";
 import { Link } from "react-router";
 import MemberMenu from "./Menu/MemberMenu";
+import useRole from "../../../hooks/useRole";
+import LoadingSpinner from "../../Shared/LoadingSpinner";
+import UserMenu from "./Menu/UserMenu";
 
 const Sidebar = () => {
   const { logOut } = useAuth();
   const [isActive, setActive] = useState(false);
+  const [role, isRoleLoading] = useRole()
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
   };
+  if (isRoleLoading) return <LoadingSpinner/>
   return (
     <>
       {/* Small Screen Navbar */}
@@ -53,20 +58,15 @@ const Sidebar = () => {
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
               {/*  Menu Items */}
-              <MemberMenu />
-              <AdminMenu />
+              {role === 'user' && <UserMenu />}
+               {role === 'member' && <MemberMenu />}
+               {role === 'admin' && <AdminMenu />}
             </nav>
           </div>
         </div>
 
         <div>
           <hr />
-
-          <MenuItem
-            icon={FcSettings}
-            label="Profile"
-            address="/dashboard/profile"
-          />
           <button
             onClick={logOut}
             className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform"
