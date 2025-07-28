@@ -12,7 +12,7 @@ const About = () => {
   ];
 
   return (
-    <section className="relative py-24 px-6 md:px-20 bg-gradient-to-r from-blue-50 via-white to-blue-50 overflow-hidden rounded-lg shadow-xl">
+    <section className="relative py-24 px-6 md:px-20 bg-gradient-to-r from-blue-50 via-white to-blue-50 overflow-hidden rounded-lg">
       {/* Decorative Blobs */}
       <div className="absolute top-10 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
       <div className="absolute top-20 right-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
