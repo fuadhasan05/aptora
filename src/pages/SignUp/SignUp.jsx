@@ -17,6 +17,13 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    if (!isValidPassword(password)) {
+      toast.error(
+        "Password must have at least 1 uppercase, 1 lowercase letter, and be at least 6 characters."
+      );
+      return;
+    }
+
     const image = form?.image?.files[0];
 
     // Extract the image URL from the response
@@ -27,19 +34,16 @@ const SignUp = () => {
       const result = await createUser(email, password);
 
       //3. Save username & profile photo
-      await updateUserProfile(
-        name,
-        imageUrl
-      );
+      await updateUserProfile(name, imageUrl);
       console.log(result);
 
       const userData = {
         name,
         email,
         image: imageUrl,
-      }
+      };
 
-      await saveUserInDb(userData)
+      await saveUserInDb(userData);
 
       navigate("/");
       toast.success("Signup Successful");
@@ -52,14 +56,14 @@ const SignUp = () => {
   // Handle Google Signin
   const handleGoogleSignIn = async () => {
     try {
-      const result = await signInWithGoogle()
+      const result = await signInWithGoogle();
       const userData = {
         name: result?.user?.displayName,
         email: result?.user?.email,
         image: result?.user?.phhotoUrl,
-      }
+      };
       // update user
-      await saveUserInDb(userData)
+      await saveUserInDb(userData);
 
       navigate("/");
       toast.success("Signup Successful");
@@ -68,6 +72,13 @@ const SignUp = () => {
       toast.error(err?.message);
     }
   };
+
+  const isValidPassword = (password) => {
+    return (
+      /[A-Z]/.test(password) && /[a-z]/.test(password) && password.length >= 6
+    );
+  };
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-white">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
