@@ -32,7 +32,7 @@ const Announcement = () => {
           {announcements.map((a) => (
             <div
               key={a._id}
-              className="bg-white shadow-xl rounded-xl p-6 border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition transform duration-300"
+              className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition transform duration-300"
             >
               {/* Title */}
               <h2 className="text-2xl font-bold text-gray-800 mb-3">

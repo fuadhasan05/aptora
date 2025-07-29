@@ -1,11 +1,35 @@
 import { Dialog, DialogTitle, DialogPanel } from '@headlessui/react'
-const BecomeMemberModal = ({ closeModal, isOpen }) => {
+import { useMutation } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+
+const BecomeSellerModal = ({ closeModal, isOpen }) => {
+  const {user} = useAuth();
+    const axiosSecure = useAxiosSecure();
+  
+    const {mutate} = useMutation({
+      mutationFn: async () => {
+        const { data } = await axiosSecure.patch(
+          `/become-member-request/${user?.email}`,
+        );
+        return data;
+      },
+      onSuccess: () => {
+        toast.success("Reqest sent successfully");
+        closeModal()
+      },
+      onError: (error) => {
+        toast.error(`Failed to update role: ${error.message}`);
+      },
+    });
+  
   return (
     <Dialog
       open={isOpen}
       as='div'
       className='relative z-10 focus:outline-none '
-      onClose={close}
+      onClose={closeModal} 
     >
       <div className='fixed inset-0 z-10 w-screen overflow-y-auto'>
         <div className='flex min-h-full items-center justify-center p-4'>
@@ -17,16 +41,17 @@ const BecomeMemberModal = ({ closeModal, isOpen }) => {
               as='h3'
               className='text-lg font-medium text-center leading-6 text-gray-900'
             >
-              Become A Member!
+              Become A Seller!
             </DialogTitle>
             <div className='mt-2'>
               <p className='text-sm text-gray-500'>
-                Please read all the terms & conditions before becoming a Member.
+                Please read all the terms & conditions before becoming a seller.
               </p>
             </div>
             <hr className='mt-8 ' />
             <div className='flex mt-2 justify-around'>
               <button
+              onClick={mutate}
                 type='button'
                 className='inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2'
               >
@@ -47,4 +72,4 @@ const BecomeMemberModal = ({ closeModal, isOpen }) => {
   )
 }
 
-export default BecomeMemberModal
+export default BecomeSellerModal
