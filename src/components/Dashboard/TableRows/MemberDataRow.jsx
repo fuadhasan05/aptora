@@ -5,7 +5,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
-const UserDataRow = ({ user }) => {
+const MemberDataRow = ({ user }) => {
   const { name, email, role, status } = user;
   let [isOpen, setIsOpen] = useState(false);
   const axiosSecure = useAxiosSecure();
@@ -84,4 +84,4 @@ const UserDataRow = ({ user }) => {
   );
 };
 
-export default UserDataRow;
+export default MemberDataRow;

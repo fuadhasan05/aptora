@@ -10,7 +10,7 @@ const Card = ({ apartment }) => {
   const handleAgreementRequest = async () => {
     // If user is not logged in, redirect to login
     if (!user) {
-      toast.warning("Please login to request an agreement");
+      toast.error("Please login to request an agreement");
       navigate("/login");
       return;
     }
