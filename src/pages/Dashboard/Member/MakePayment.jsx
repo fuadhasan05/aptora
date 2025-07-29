@@ -88,8 +88,8 @@ const MakePayment = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 flex justify-center items-center px-6 py-12">
-      <div className="bg-white shadow-2xl rounded-3xl p-10 max-w-md w-full">
+    <div className="min-h-screen flex justify-center items-center px-6 py-12">
+      <div className="bg-white shadow-lg rounded-xl border border-gray-200 p-10 max-w-md w-full">
         <h2 className="text-3xl font-extrabold text-blue-800 mb-8 text-center tracking-wide drop-shadow-md">
           💳 Make a Payment
         </h2>
