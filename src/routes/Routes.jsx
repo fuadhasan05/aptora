@@ -19,6 +19,7 @@ import MemberRoute from "./MemberRoute";
 import MyProfile from "../pages/Dashboard/Member/MyProfile";
 import MakePayment from "../pages/Dashboard/Member/MakePayment";
 import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
+import CheckoutForm from "../components/Form/CheckoutForm";
 
 export const router = createBrowserRouter([
   {
@@ -139,6 +140,16 @@ export const router = createBrowserRouter([
           <PrivateRoute>
             <MemberRoute>
               <PaymentHistory />
+            </MemberRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payment-checkout",
+        element: (
+          <PrivateRoute>
+            <MemberRoute>
+              <CheckoutForm />
             </MemberRoute>
           </PrivateRoute>
         ),

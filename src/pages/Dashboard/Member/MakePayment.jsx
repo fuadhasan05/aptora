@@ -2,17 +2,19 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 import {
   FaEnvelope,
   FaHome,
   FaCalendarAlt,
-  FaTicketAlt,
   FaMoneyBillWave,
 } from "react-icons/fa";
 import LoadingSpinner from "../../../components/Shared/LoadingSpinner";
 
 const MakePayment = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
+
   const [memberData, setMemberData] = useState(null);
   const [month, setMonth] = useState("");
   const [couponCode, setCouponCode] = useState("");
@@ -20,6 +22,7 @@ const MakePayment = () => {
   const [finalRent, setFinalRent] = useState(0);
   const [isCouponApplied, setIsCouponApplied] = useState(false);
 
+  // Fetch member data
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/my-profile?email=${user?.email}`)
@@ -30,6 +33,7 @@ const MakePayment = () => {
       .catch((err) => console.log(err));
   }, [user]);
 
+  // Coupon handler
   const handleApplyCoupon = async () => {
     if (!couponCode) {
       toast.error("Please enter a coupon code!");
@@ -56,20 +60,27 @@ const MakePayment = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  // Submit handler - redirect to Payment Page
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const paymentData = {
-      email: memberData.userEmail,
-      floor: memberData.floorNo,
-      block: memberData.blockName,
-      room: memberData.apartmentNo,
-      rent: finalRent,
-      month,
-      coupon: couponCode || null,
-    };
 
-    console.log(paymentData);
-    toast.success("Payment submitted successfully!");
+    if (!month) {
+      toast.error("Please select a month!");
+      return;
+    }
+
+    // Navigate and pass data to Payment Page
+    navigate("/dashboard/payment-checkout", {
+      state: {
+        email: memberData.userEmail,
+        floor: memberData.floorNo,
+        block: memberData.blockName,
+        room: memberData.apartmentNo,
+        rent: finalRent,
+        month,
+        coupon: couponCode || null,
+      },
+    });
   };
 
   if (!memberData) {
@@ -93,7 +104,7 @@ const MakePayment = () => {
               type="text"
               value={memberData.userEmail}
               readOnly
-              className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+              className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100"
             />
           </div>
 
@@ -107,7 +118,7 @@ const MakePayment = () => {
               type="text"
               value={memberData.floorNo}
               readOnly
-              className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+              className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100"
             />
           </div>
 
@@ -121,7 +132,7 @@ const MakePayment = () => {
               type="text"
               value={memberData.blockName}
               readOnly
-              className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+              className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100"
             />
           </div>
 
@@ -135,7 +146,7 @@ const MakePayment = () => {
               type="text"
               value={memberData.apartmentNo}
               readOnly
-              className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+              className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100"
             />
           </div>
 
@@ -149,10 +160,10 @@ const MakePayment = () => {
               type="text"
               value={finalRent}
               readOnly
-              className="w-full border border-gray-300 rounded-xl p-3 bg-green-50 text-green-900 font-semibold focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+              className="w-full border border-gray-300 rounded-xl p-3 bg-green-50 text-green-900 font-semibold"
             />
             {isCouponApplied && (
-              <p className="text-green-700 text-sm mt-1 font-medium italic">
+              <p className="text-green-700 text-sm mt-1 italic">
                 {discount}% discount applied!
               </p>
             )}
@@ -165,12 +176,12 @@ const MakePayment = () => {
               placeholder="Enter Coupon Code"
               value={couponCode}
               onChange={(e) => setCouponCode(e.target.value)}
-              className="flex-grow border border-gray-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+              className="flex-grow border border-gray-300 rounded-xl p-3"
             />
             <button
               type="button"
               onClick={handleApplyCoupon}
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition transform hover:scale-105"
+              className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold shadow-md"
             >
               Apply
             </button>
@@ -187,14 +198,14 @@ const MakePayment = () => {
               value={month}
               onChange={(e) => setMonth(e.target.value)}
               required
-              className="w-full border border-gray-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              className="w-full border border-gray-300 rounded-xl p-3"
             />
           </div>
 
           {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-extrabold py-4 rounded-2xl shadow-lg tracking-wide transition transform hover:scale-105"
+            className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white font-bold py-4 rounded-2xl shadow-lg hover:scale-105 transition"
           >
             Pay Rent
           </button>
