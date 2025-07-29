@@ -1,47 +1,58 @@
 import { useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { FaBullhorn } from "react-icons/fa";
 
 const MakeAnnouncement = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const formData = {
-      title,
-      description,
-    };
-
-    console.log("Announcement Data:", formData);
-
-    // Reset form
-    setTitle("");
-    setDescription("");
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/announcements`,
+        { title, description },
+        { withCredentials: true }
+      );
+      toast.success("✅ Announcement created successfully!");
+      setTitle("");
+      setDescription("");
+    } catch (error) {
+      console.error(error);
+      toast.error("❌ Error creating announcement");
+    }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex justify-center items-center p-6">
-      <div className="bg-white shadow-xl rounded-xl p-8 w-full max-w-lg">
-        <h2 className="text-2xl font-bold text-blue-700 mb-6 text-center">
-          Make an Announcement
-        </h2>
-        <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Title Field */}
+    <div className="min-h-screen bg-white flex justify-center items-center p-6">
+      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-xl border-t-4 border-blue-600">
+        {/* Icon + Heading */}
+        <div className="flex items-center justify-center mb-6">
+          <FaBullhorn className="text-blue-600 text-4xl mr-2 animate-bounce" />
+          <h2 className="text-3xl font-extrabold text-blue-700">
+            Make an Announcement
+          </h2>
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Title */}
           <div>
             <label className="block text-gray-700 font-semibold mb-2">
-              Title
+              Announcement Title
             </label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Enter announcement title"
-              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="e.g. Gym Renovation Completed"
+              className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
               required
             />
           </div>
 
-          {/* Description Field */}
+          {/* Description */}
           <div>
             <label className="block text-gray-700 font-semibold mb-2">
               Description
@@ -49,9 +60,9 @@ const MakeAnnouncement = () => {
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Enter announcement description"
+              placeholder="Write the details here..."
               rows="4"
-              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
               required
             ></textarea>
           </div>
@@ -59,9 +70,9 @@ const MakeAnnouncement = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 cursor-pointer"
           >
-            Submit Announcement
+            🚀 Submit Announcement
           </button>
         </form>
       </div>

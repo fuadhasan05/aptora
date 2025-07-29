@@ -1,9 +1,9 @@
 import { FaUserCog } from "react-icons/fa";
-import { TfiAnnouncement } from "react-icons/tfi";
 import MenuItem from "./MenuItem";
 import { IoGitPullRequestSharp } from "react-icons/io5";
 import { RiCoupon3Line } from "react-icons/ri";
-import { MdAdminPanelSettings } from "react-icons/md";
+import { MdAdminPanelSettings, MdAnnouncement } from "react-icons/md";
+import { FaBullhorn } from "react-icons/fa";
 
 const AdminMenu = () => {
   return (
@@ -14,8 +14,8 @@ const AdminMenu = () => {
         address="manage-members"
       />
       <MenuItem
-        icon={TfiAnnouncement}
-        label="Manage Announcement"
+        icon={FaBullhorn}
+        label="Make Announcement"
         address="make-announcement"
       />
       <MenuItem
@@ -32,6 +32,11 @@ const AdminMenu = () => {
         icon={MdAdminPanelSettings}
         label="Admin Profile"
         address="admin-profile"
+      />
+      <MenuItem
+        icon={MdAnnouncement}
+        label="Announcements"
+        address="/dashboard"
       />
     </>
   );
