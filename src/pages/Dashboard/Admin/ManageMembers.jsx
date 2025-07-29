@@ -13,7 +13,7 @@ const ManageMembers = () => {
     },
   });
 
-  console.log(users);
+  // console.log(users);
 
   if (isLoading) return <LoadingSpinner></LoadingSpinner>;
   return (
