@@ -10,12 +10,12 @@ const Profile = () => {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="bg-white shadow-lg rounded-2xl md:w-4/5 lg:w-3/5">
-        {/* Cover Image */}
-        <img
-          alt="cover photo"
-          src="https://i.ibb.co/sCynFnm/dose-media-b-U6-Jyh-SI6zo-unsplash.jpg"
-          className="w-full mb-4 rounded-t-lg h-56 object-cover"
-        />
+        {/* Gradient Cover */}
+        <div className="w-full h-56 rounded-t-lg bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 mb-4 relative">
+          <h1 className="absolute bottom-3 left-5 text-white text-2xl font-bold">
+            Welcome {user?.displayName?.split(" ")[0]}!
+          </h1>
+        </div>
 
         <div className="flex flex-col items-center justify-center p-4 -mt-16">
           {/* Profile Image */}
@@ -23,7 +23,7 @@ const Profile = () => {
             <img
               alt="profile"
               src={user.photoURL}
-              className="mx-auto object-cover rounded-full h-24 w-24 border-2 border-purple-400"
+              className="mx-auto object-cover rounded-full h-24 w-24 border-2 border-orange-600"
             />
           </a>
 
