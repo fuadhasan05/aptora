@@ -8,8 +8,12 @@ const CardList = ({ apartments }) => {
 
   const apartmentsPerPage = 6;
 
-  // Filter apartments based on rent range
+  // Filter apartments: hide rented & filter by rent range
   const filteredApartments = apartments.filter((apartment) => {
+    // 1. Hide apartments with status: rented
+    if (apartment.status === "rented") return false;
+
+    // 2. Rent filter
     const rent = parseInt(apartment.rent);
     const min = minRent ? parseInt(minRent) : 0;
     const max = maxRent ? parseInt(maxRent) : Infinity;

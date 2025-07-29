@@ -17,6 +17,10 @@ const AgreementDataRow = ({ request }) => {
       await axiosSecure.patch(`/user/role/update/${request.userEmail}`, {
         role: "member",
       });
+      // 3. Update apartment status to "rented"
+      await axiosSecure.patch(`/apartments/${request.apartmentNo}`,{
+        status: "rented",
+      });
     },
     onSuccess: () => {
       toast.success("Accepted! User is now a member.");
