@@ -1,12 +1,18 @@
 import MenuItem from "./MenuItem";
 import { MdOutlinePayments, MdAnnouncement } from "react-icons/md";
 import { BiDollarCircle } from "react-icons/bi";
+import { CgProfile } from "react-icons/cg";
 const MemberMenu = () => {
   return (
     <>
+    <MenuItem
+        icon={CgProfile}
+        label="My Profile"
+        address="my-profile"
+      />
       <MenuItem
         icon={BiDollarCircle}
-        label="Make payment"
+        label="Make Payment"
         address="make-payment"
       />
       <MenuItem

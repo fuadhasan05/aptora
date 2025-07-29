@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed w-full z-50 shadow-lg bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 text-white">
-      <div className="py-4">
+      <div className="py-3">
         <Container>
           <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
             {/* Left: Logo */}
@@ -84,18 +84,6 @@ const Navbar = () => {
                         {user.displayName || "User"}
                       </div>
                     )}
-                    <Link
-                      to="/"
-                      className="block md:hidden px-4 py-3 hover:bg-blue-100 transition font-semibold"
-                    >
-                      Home
-                    </Link>
-                    <Link
-                      to="/apertments"
-                      className="block md:hidden px-4 py-3 hover:bg-blue-100 transition font-semibold"
-                    >
-                      Apartment
-                    </Link>
                     {user ? (
                       <>
                         <Link

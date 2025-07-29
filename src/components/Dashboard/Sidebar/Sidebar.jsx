@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { GrLogout } from "react-icons/gr";
-import { FcSettings } from "react-icons/fc";
+import { FaHome } from "react-icons/fa";
 import { AiOutlineBars } from "react-icons/ai";
 import MenuItem from "./Menu/MenuItem";
 import useAuth from "../../../hooks/useAuth";
@@ -10,28 +10,42 @@ import MemberMenu from "./Menu/MemberMenu";
 import useRole from "../../../hooks/useRole";
 import LoadingSpinner from "../../Shared/LoadingSpinner";
 import UserMenu from "./Menu/UserMenu";
+import logo from "../../../assets/images/logo-square.png";
 
 const Sidebar = () => {
   const { logOut } = useAuth();
   const [isActive, setActive] = useState(false);
-  const [role, isRoleLoading] = useRole()
+  const [role, isRoleLoading] = useRole();
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
   };
-  if (isRoleLoading) return <LoadingSpinner/>
+  if (isRoleLoading) return <LoadingSpinner />;
   return (
     <>
       {/* Small Screen Navbar */}
-      <div className="bg-gray-100 text-gray-800 flex justify-between md:hidden">
+      <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 text-white flex justify-between md:hidden">
         <div>
-          <div className="block cursor-pointer p-4 font-bold"></div>
+          <div className="block cursor-pointer p-2 font-bold ">
+              <Link to="/" className="flex items-center gap-1">
+              <img
+                src={logo}
+                alt="logo"
+                width="48"
+                height="48"
+                className="rounded-lg"
+              />
+              <h1 className="text-2xl font-extrabold tracking-wide">
+                APTORA
+              </h1>
+            </Link>
+            </div>
         </div>
 
         <button
           onClick={handleToggle}
-          className="mobile-menu-button p-4 focus:outline-none focus:bg-gray-200"
+          className="mobile-menu-button p-4 focus:outline-none"
         >
           <AiOutlineBars className="h-5 w-5" />
         </button>
@@ -45,12 +59,19 @@ const Sidebar = () => {
       >
         <div>
           <div>
-            <div className="w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-blue-100 mx-auto">
-              <Link to="/">
-                <h1 className="text-lg font-semibold text-blue-700 transition ">
-                  Home
-                </h1>
-              </Link>
+            <div className="w-full hidden md:flex px-2 py-2 shadow-lg rounded-lg justify-center items-center bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 text-white mx-auto transition-all duration-300">
+              <Link to="/" className="flex items-center gap-2">
+              <img
+                src={logo}
+                alt="logo"
+                width="48"
+                height="48"
+                className="rounded-lg"
+              />
+              <h1 className="text-2xl md:text-3xl font-extrabold tracking-wide">
+                APTORA
+              </h1>
+            </Link>
             </div>
           </div>
 
@@ -58,9 +79,9 @@ const Sidebar = () => {
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
               {/*  Menu Items */}
-              {role === 'user' && <UserMenu />}
-               {role === 'member' && <MemberMenu />}
-               {role === 'admin' && <AdminMenu />}
+              {role === "user" && <UserMenu />}
+              {role === "member" && <MemberMenu />}
+              {role === "admin" && <AdminMenu />}
             </nav>
           </div>
         </div>

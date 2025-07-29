@@ -1,41 +1,46 @@
-import { createBrowserRouter } from 'react-router'
-import Home from '../pages/Home/Home'
-import ErrorPage from '../pages/ErrorPage'
-import Login from '../pages/Login/Login'
-import SignUp from '../pages/SignUp/SignUp'
-import PrivateRoute from './PrivateRoute'
-import DashboardLayout from '../layouts/DashboardLayout'
-import Profile from '../pages/Dashboard/Common/Profile'
-import MainLayout from '../layouts/MainLayout'
-import ManageMembers from '../pages/Dashboard/Admin/ManageMembers'
-import AgreementRequests from '../pages/Dashboard/Admin/AgreementRequests'
-import ManageCoupons from '../pages/Dashboard/Admin/ManageCoupons'
-import AdminProfile from '../pages/Dashboard/Admin/AdminProfile'
-import Apartments from '../pages/Apartment/Apartments'
-import Announcement from '../pages/Dashboard/Common/Announcement'
-import MakeAnnouncement from '../pages/Dashboard/Admin/MakeAnnouncement'
+import { createBrowserRouter } from "react-router";
+import Home from "../pages/Home/Home";
+import ErrorPage from "../pages/ErrorPage";
+import Login from "../pages/Login/Login";
+import SignUp from "../pages/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute";
+import DashboardLayout from "../layouts/DashboardLayout";
+import Profile from "../pages/Dashboard/Common/Profile";
+import MainLayout from "../layouts/MainLayout";
+import ManageMembers from "../pages/Dashboard/Admin/ManageMembers";
+import AgreementRequests from "../pages/Dashboard/Admin/AgreementRequests";
+import ManageCoupons from "../pages/Dashboard/Admin/ManageCoupons";
+import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
+import Apartments from "../pages/Apartment/Apartments";
+import Announcement from "../pages/Dashboard/Common/Announcement";
+import MakeAnnouncement from "../pages/Dashboard/Admin/MakeAnnouncement";
+import AdminRoute from "./AdminRoute";
+import MemberRoute from "./MemberRoute";
+import MyProfile from "../pages/Dashboard/Member/MyProfile";
+import MakePayment from "../pages/Dashboard/Member/MakePayment";
+import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <MainLayout />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Home />,
       },
       {
-        path: '/apertments',
+        path: "/apertments",
         element: <Apartments />,
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/apertments`),
       },
     ],
   },
-  { path: '/login', element: <Login /> },
-  { path: '/signup', element: <SignUp /> },
+  { path: "/login", element: <Login /> },
+  { path: "/signup", element: <SignUp /> },
   {
-    path: '/dashboard',
+    path: "/dashboard",
     element: (
       <PrivateRoute>
         <DashboardLayout />
@@ -46,12 +51,12 @@ export const router = createBrowserRouter([
         index: true,
         element: (
           <PrivateRoute>
-            <Announcement/>
+            <Announcement />
           </PrivateRoute>
         ),
       },
       {
-        path: 'profile',
+        path: "profile",
         element: (
           <PrivateRoute>
             <Profile />
@@ -59,53 +64,85 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'manage-members',
+        path: "manage-members",
         element: (
           <PrivateRoute>
-            <ManageMembers />
+            <AdminRoute>
+              <ManageMembers />
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
       {
-        path: 'make-announcement',
+        path: "make-announcement",
         element: (
           <PrivateRoute>
-            <MakeAnnouncement></MakeAnnouncement>
+            <AdminRoute>
+              <MakeAnnouncement />
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
       {
-        path: 'agreement-requests',
+        path: "agreement-requests",
         element: (
           <PrivateRoute>
-            <AgreementRequests></AgreementRequests>
+            <AdminRoute>
+              <AgreementRequests />
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
       {
-        path: 'manage-coupons',
+        path: "manage-coupons",
         element: (
           <PrivateRoute>
-            <ManageCoupons></ManageCoupons>
+            <AdminRoute>
+              <ManageCoupons />
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
       {
-        path: 'admin-profile',
+        path: "admin-profile",
         element: (
           <PrivateRoute>
-            <AdminProfile></AdminProfile>
+            <AdminRoute>
+              <AdminProfile />
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
       {
-        path: 'profile',
+        path: "my-profile",
         element: (
           <PrivateRoute>
-            <Profile />
+            <MemberRoute>
+              <MyProfile />
+            </MemberRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "make-payment",
+        element: (
+          <PrivateRoute>
+            <MemberRoute>
+              <MakePayment />
+            </MemberRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payment-history",
+        element: (
+          <PrivateRoute>
+            <MemberRoute>
+              <PaymentHistory />
+            </MemberRoute>
           </PrivateRoute>
         ),
       },
     ],
   },
-])
+]);
