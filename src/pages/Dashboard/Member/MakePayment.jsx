@@ -25,7 +25,9 @@ const MakePayment = () => {
   // Fetch member data
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/my-profile?email=${user?.email}`)
+      .get(`${import.meta.env.VITE_API_URL}/my-profile?email=${user?.email}`, {
+        withCredentials: true,
+      })
       .then((res) => {
         setMemberData(res.data);
         setFinalRent(res.data.rent);

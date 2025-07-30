@@ -106,19 +106,6 @@ const MyProfile = () => {
                   {profile?.rent ? `${profile.rent} BDT` : "None"}
                 </span>
               </p>
-              {/* Status */}
-              <p className="flex flex-col">
-                Status
-                <span
-                  className={`font-bold ${
-                    profile?.status === "checked"
-                      ? "text-green-600"
-                      : "text-yellow-600"
-                  }`}
-                >
-                  {profile?.status || "None"}
-                </span>
-              </p>
             </div>
           </div>
         </div>
