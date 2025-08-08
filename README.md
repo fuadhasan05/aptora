@@ -1,37 +1,37 @@
 # Aptora - Building Management System
 
-## Purpose
+Aptora is a modern web application for managing apartment buildings, agreements, users, and administrative operations. It streamlines apartment listings, agreement requests, coupon management, payments, and announcements for both admins and users.
 
-Aptora is a comprehensive building management system designed to simplify and automate the management of apartments, agreements, users, and administrative operations. It provides an intuitive interface for both admins and users to efficiently handle apartment listings, agreement requests, coupons, payments, and more.
+## Live Demo
 
-## Live URL
+- [Aptora](https://aptora-25.web.app/)
 
-(https://aptora-25.web.app/)
+## Preview
 
-## Key Features
+![Aptora Screenshot](public/screenshot.png)
 
-- **User & Admin Dashboards**
-  - Admins manage apartments, agreements, coupons, announcements, and members.
-  - Users browse apartments, send agreement requests, and view their payment history.
-- **Apartment Management**
-  - View apartment details including floor, block, apartment number, and rent.
-  - Add, update, and delete apartments (admin only).
-- **Agreement Requests**
-  - Users can request agreements for apartments.
-  - Admins review and accept/reject requests, updating user roles accordingly.
-- **Coupon Management**
-  - Admins can create discount coupons with code, description, and discount percentage.
-- **Payment System**
-  - Users can pay rent securely via Stripe integration.
-  - Payment history is available for each user.
-- **Announcement System**
-  - Admins can make announcements visible to all users.
-- **Admin Profile & Statistics**
-  - Displays total rooms, availability percentages, user and member counts.
-- **Responsive Design**
-  - Mobile and desktop optimized with TailwindCSS.
+## Technologies Used
 
-## NPM Packages Used
+- **Frontend:** React, Vite, TailwindCSS
+- **Routing & State:** React Router, React Query
+- **Forms & Validation:** React Hook Form
+- **Authentication:** Firebase
+- **Payments:** Stripe
+- **Backend:** MongoDB (API not included in this repo)
+- **Other:** Axios, Headless UI, React Icons, React Hot Toast
+
+## Core Features
+
+- **User & Admin Dashboards:** Role-based dashboards for managing apartments, agreements, coupons, and announcements.
+- **Apartment Management:** Admins can add, update, and delete apartments; users can browse listings.
+- **Agreement Requests:** Users request agreements; admins review and update user roles.
+- **Coupon Management:** Admins create and manage discount coupons.
+- **Payment System:** Secure rent payments via Stripe with payment history.
+- **Announcement System:** Admins post announcements for all users.
+- **Statistics:** Admin dashboard displays key building stats.
+- **Responsive Design:** Optimized for mobile and desktop.
+
+## Dependencies
 
 - react
 - react-router-dom
@@ -47,3 +47,35 @@ Aptora is a comprehensive building management system designed to simplify and au
 - stripe
 - @stripe/react-stripe-js
 - @stripe/stripe
+
+## Getting Started
+
+Follow these steps to run the project locally:
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/fuadhasan05/aptora.git
+   cd aptora/client
+   ```
+
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   - Copy `.env.local.example` to `.env.local`.
+   - Fill in your Firebase and Stripe credentials in `.env.local`.
+
+4. **Start the development server:**
+   ```sh
+   npm run dev
+   ```
+
+5. **Open the app in your browser:**
+   - Visit [http://localhost:5173](http://localhost:5173)
+
+6. **(Optional) Build for production:**
+   ```sh
+   npm run build
+   ```
