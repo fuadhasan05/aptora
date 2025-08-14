@@ -8,7 +8,7 @@ Aptora is a modern web application for managing apartment buildings, agreements,
 
 ## Preview
 
-![Aptora Screenshot](/public/Aptora-scernshot)
+![Aptora Screenshot](/public/Aptora-scernshot.png)
 
 ## Technologies Used
 
