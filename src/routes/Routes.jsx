@@ -20,6 +20,7 @@ import MyProfile from "../pages/Dashboard/Member/MyProfile";
 import MakePayment from "../pages/Dashboard/Member/MakePayment";
 import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
 import CheckoutForm from "../components/Form/CheckoutForm";
+import About from "../pages/About/About";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
         path: "/apertments",
         element: <Apartments />,
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/apertments`),
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },

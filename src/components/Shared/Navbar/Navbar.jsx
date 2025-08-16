@@ -56,6 +56,16 @@ const Navbar = () => {
               >
                 Apartment
               </Link>
+              <Link
+                to="/about"
+                className={`text-lg font-semibold hidden md:block transition duration-300 ${
+                  location.pathname === "/about"
+                    ? "text-primary underline underline-offset-4 decoration-2"
+                    : "hover:text-primary"
+                }`}
+              >
+                About
+              </Link>
             </div>
 
             {/* Right: Theme Toggle and User Dropdown */}
