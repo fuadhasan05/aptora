@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
-import Banner1 from '../../assets/images/banner-1.jpg';
-import Banner2 from '../../assets/images/banner-2.jpg';
-import Banner3 from '../../assets/images/banner-3.jpg';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+import Banner1 from "../../assets/images/banner-1.jpg";
+import Banner2 from "../../assets/images/banner-2.jpg";
+import Banner3 from "../../assets/images/banner-3.jpg";
+import Button from "../Shared/Button/Button";
 
 const Banner = () => {
   const images = [Banner1, Banner2, Banner3];
@@ -29,7 +30,7 @@ const Banner = () => {
           src={img}
           alt={`Banner ${index + 1}`}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-            index === currentIndex ? 'opacity-100' : 'opacity-0'
+            index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
         />
       ))}
@@ -46,12 +47,9 @@ const Banner = () => {
           Explore our beautiful apartments with world-class amenities and
           comfortable living spaces.
         </p>
-        <button
-          onClick={() => navigate('/apertments')}
-          className="bg-blue-500 hover:bg-blue-700 text-white px-6 py-2 rounded-lg shadow-lg cursor-pointer"
-        >
+        <Button onClick={() => navigate("/apertments")} variant="primary">
           Explore Now
-        </button>
+        </Button>
       </div>
 
       {/* Dots Indicator */}
@@ -60,7 +58,7 @@ const Banner = () => {
           <div
             key={index}
             className={`w-3 h-3 rounded-full ${
-              index === currentIndex ? 'bg-white' : 'bg-gray-400'
+              index === currentIndex ? "bg-white" : "bg-gray-400"
             }`}
           ></div>
         ))}

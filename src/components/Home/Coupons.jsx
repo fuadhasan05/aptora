@@ -3,6 +3,7 @@ import { FaGift, FaSun, FaUsers } from "react-icons/fa";
 import axios from "axios";
 import toast from "react-hot-toast";
 import LoadingSpinner from "../Shared/LoadingSpinner";
+import Button from "../Shared/Button/Button";
 
 const Coupons = () => {
   const [coupons, setCoupons] = useState([]);
@@ -92,12 +93,13 @@ const Coupons = () => {
                     </div>
 
                     <div className="mt-auto">
-                      <button
+                      <Button
+                      className="w-full"
                         onClick={() => handleCopy(code)}
-                        className="w-full bg-white text-gray-900 font-semibold py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center gap-2"
+                        variant="secondary"
                       >
                         Copy Code
-                      </button>
+                      </Button>
                       {expiryDate && (
                         <p className="text-white/60 text-sm mt-3 text-center">
                           Expires: {new Date(expiryDate).toLocaleDateString()}
