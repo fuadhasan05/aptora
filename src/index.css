@@ -18,3 +18,12 @@ body {
 .font-bold {
   font-weight: 700;
 }
+
+html, body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Set base colors */
+body {
+  @apply bg-base-100 text-base-content;
+}
