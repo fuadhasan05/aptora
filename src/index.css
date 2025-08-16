@@ -1,2 +1,20 @@
 @import 'tailwindcss';
 @plugin "daisyui";
+
+/* Set Sansation as the default font family */
+:root {
+  --font-sansation: 'Sansation', sans-serif;
+}
+
+body {
+  font-family: var(--font-sansation);
+}
+
+/* Optional: Create utility classes for different font weights */
+.font-regular {
+  font-weight: 400;
+}
+
+.font-bold {
+  font-weight: 700;
+}
