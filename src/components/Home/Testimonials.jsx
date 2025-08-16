@@ -24,7 +24,7 @@ const Testimonials = () => {
 
   return (
     <section className="py-16 bg-base-200">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-2 md:px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-base-content mb-4">
             Resident <span className="text-secondary">Testimonials</span>
@@ -42,7 +42,7 @@ const Testimonials = () => {
             >
               <FaQuoteLeft className="text-primary/30 text-3xl mb-4" />
               <p className="text-lg text-base-content/90 mb-6 italic">"{testimonial.quote}"</p>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-6">
                 <div className="bg-primary/10 text-primary w-12 h-12 rounded-full flex items-center justify-center font-bold">
                   {testimonial.author.charAt(0)}
                 </div>

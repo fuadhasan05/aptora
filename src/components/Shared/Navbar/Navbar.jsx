@@ -19,7 +19,7 @@ const Navbar = () => {
     <div className="fixed w-full z-50 bg-base-100 text-base-content">
       <div className="py-3">
         <Container>
-          <div className="container mx-auto flex flex-row items-center justify-between gap-3 md:gap-0">
+          <div className="container mx-auto px-2 md:px-4 flex flex-row items-center justify-between gap-3 md:gap-0">
             {/* Left: Logo */}
             <Link to="/" className="flex items-center gap-2">
               <img
@@ -29,7 +29,7 @@ const Navbar = () => {
                 height="48"
                 className="rounded-lg"
               />
-              <h1 className="text-2xl md:text-3xl font-extrabold tracking-wide">
+              <h1 className="text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                 APTORA
               </h1>
             </Link>

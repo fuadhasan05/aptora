@@ -6,7 +6,7 @@ const LocationSection = () => {
     <section className="relative py-16 bg-base-100 overflow-hidden">
       {/* Section Title */}
       <div className="text-center mb-12 md:mb-20 px-4">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-base-content mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-base-content mb-4">
           Prime <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Location</span>
         </h2>
         <p className="text-lg md:text-xl text-base-content/80 max-w-2xl mx-auto">
@@ -15,10 +15,10 @@ const LocationSection = () => {
       </div>
 
       {/* Content Wrapper */}
-      <div className="relative container mx-auto">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16 items-center">
+      <div className="relative container mx-auto px-2 md:px-4">
+        <div className="flex flex-col lg:flex-row gap-6 items-center">
           {/* Left side: Details */}
-          <div className="lg:w-1/2 space-y-8">
+          <div className="lg:w-1/2 space-y-6">
             {/* Address Card */}
             <div className="bg-base-200/50 backdrop-blur-sm p-6 rounded-xl border border-base-300 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-center gap-3 mb-4">
@@ -35,7 +35,7 @@ const LocationSection = () => {
             </div>
 
             {/* Transportation Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Public Transport */}
               <div className="bg-base-200/50 backdrop-blur-sm p-6 rounded-xl border border-base-300 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-semibold mb-4 text-base-content">Public Transport</h3>
@@ -77,7 +77,7 @@ const LocationSection = () => {
           </div>
 
           {/* Right side: Google Map Embed */}
-          <div className="lg:w-1/2 h-80 sm:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-xl border border-base-300">
+          <div className="lg:w-1/2 h-80 md:h-96  rounded-xl overflow-hidden border border-base-300">
             <iframe
               title="Apartment Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9037251240264!2d90.27582867534445!3d23.780887488614195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c76f3d09c0ff%3A0x6a0e4e9ec3a1e95d!2sGulshan%202%20Dhaka!5e0!3m2!1sen!2sbd!4v1692522354879!5m2!1sen!2sbd"
@@ -93,7 +93,7 @@ const LocationSection = () => {
         </div>
 
         {/* Nearby Amenities Section */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { icon: '🛒', name: 'Supermarkets', distance: '3 min walk' },
             { icon: '🍽️', name: 'Restaurants', distance: '2 min walk' },
