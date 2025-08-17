@@ -1,7 +1,7 @@
 import Container from "../Container";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineDown } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { FaSun, FaMoon, FaQuestionCircle, FaFileContract, FaLock } from "react-icons/fa";
 import { useState } from "react";
 import { Link, useLocation } from "react-router";
 import useAuth from "../../../hooks/useAuth";
@@ -12,6 +12,7 @@ import { useTheme } from "../../../context/ThemeContext";
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
 
@@ -56,16 +57,63 @@ const Navbar = () => {
               >
                 Apartment
               </Link>
-              <Link
-                to="/about"
-                className={`text-lg font-semibold hidden md:block transition duration-300 ${
-                  location.pathname === "/about"
-                    ? "text-primary underline underline-offset-4 decoration-2"
-                    : "hover:text-primary"
-                }`}
-              >
-                About
-              </Link>
+              
+              {/* About Dropdown */}
+              <div className="relative hidden md:block">
+                <button
+                  onClick={() => setIsAboutOpen(!isAboutOpen)}
+                  className={`text-lg font-semibold flex items-center gap-1 transition duration-300 ${
+                    location.pathname.startsWith("/about") ||
+                    location.pathname.startsWith("/faq") ||
+                    location.pathname.startsWith("/terms") ||
+                    location.pathname.startsWith("/privacy")
+                      ? "text-primary underline underline-offset-4 decoration-2"
+                      : "hover:text-primary"
+                  }`}
+                >
+                  About
+                  <AiOutlineDown className={`text-xs transition-transform ${isAboutOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isAboutOpen && (
+                  <div 
+                    className="absolute rounded-xl shadow-xl w-48 bg-base-100 overflow-hidden right-0 top-8 text-sm border border-base-200"
+                    onMouseLeave={() => setIsAboutOpen(false)}
+                  >
+                    <div className="flex flex-col cursor-pointer">
+                      <Link
+                        to="/about"
+                        className="px-4 py-3 hover:bg-base-200 transition font-semibold flex items-center gap-2"
+                        onClick={() => setIsAboutOpen(false)}
+                      >
+                        About Us
+                      </Link>
+                      <Link
+                        to="/faq"
+                        className="px-4 py-3 hover:bg-base-200 transition font-semibold flex items-center gap-2"
+                        onClick={() => setIsAboutOpen(false)}
+                      >
+                        <FaQuestionCircle className="text-primary" /> FAQ
+                      </Link>
+                      <Link
+                        to="/terms"
+                        className="px-4 py-3 hover:bg-base-200 transition font-semibold flex items-center gap-2"
+                        onClick={() => setIsAboutOpen(false)}
+                      >
+                        <FaFileContract className="text-primary" /> Terms
+                      </Link>
+                      <Link
+                        to="/privacy"
+                        className="px-4 py-3 hover:bg-base-200 transition font-semibold flex items-center gap-2"
+                        onClick={() => setIsAboutOpen(false)}
+                      >
+                        <FaLock className="text-primary" /> Privacy
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+              
               <Link
                 to="/contact"
                 className={`text-lg font-semibold hidden md:block transition duration-300 ${
@@ -91,18 +139,27 @@ const Navbar = () => {
                 {theme === "light" ? <FaMoon size={20} /> : <FaSun size={20} />}
               </button>
 
-              {/* User/Login Dropdown */}
-              <div className="relative">
+              {/* Mobile Menu Button */}
+              <div className="md:hidden">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="btn btn-ghost btn-circle"
+                >
+                  <AiOutlineMenu size={20} />
+                </button>
+              </div>
+
+              {/* User/Login Dropdown (Desktop) */}
+              <div className="relative hidden md:block">
                 <div
                   onClick={() => setIsOpen(!isOpen)}
                   className="p-2 bg-base-200 flex items-center gap-2 rounded-full cursor-pointer hover:bg-base-300 hover:shadow-md transition"
                 >
-                  <AiOutlineMenu className="text-lg" />
-                  <div className="hidden md:block">
+                  <div className="">
                     <img
                       className="rounded-full border border-base-content/20"
                       referrerPolicy="no-referrer"
-                      src={user && user.photoURL ? user.photoURL : avatarImg}
+                      src={user && user.photoURL ? user.photoURL  : avatarImg}
                       alt="profile"
                       height="32"
                       width="32"
@@ -112,7 +169,7 @@ const Navbar = () => {
 
                 {/* Dropdown */}
                 {isOpen && (
-                  <div className="absolute rounded-xl shadow-xl w-[42vw] md:w-[14vw] bg-base-100 overflow-hidden right-0 top-12 text-sm border border-base-200">
+                  <div className="absolute rounded-xl shadow-xl w-48 bg-base-100 overflow-hidden right-0 top-12 text-sm border border-base-200">
                     <div className="flex flex-col cursor-pointer">
                       {/* Show username if user is logged in */}
                       {user && (
@@ -125,11 +182,15 @@ const Navbar = () => {
                           <Link
                             to="/dashboard"
                             className="px-4 py-3 hover:bg-base-200 transition font-semibold"
+                            onClick={() => setIsOpen(false)}
                           >
                             Dashboard
                           </Link>
                           <div
-                            onClick={logOut}
+                            onClick={() => {
+                              logOut();
+                              setIsOpen(false);
+                            }}
                             className="px-4 py-3 hover:bg-base-200 transition font-semibold cursor-pointer"
                           >
                             Logout
@@ -140,12 +201,14 @@ const Navbar = () => {
                           <Link
                             to="/login"
                             className="px-4 py-3 hover:bg-base-200 transition font-semibold flex items-center gap-2"
+                            onClick={() => setIsOpen(false)}
                           >
                             <FiLogIn /> Login
                           </Link>
                           <Link
                             to="/signup"
                             className="px-4 py-3 hover:bg-base-200 transition font-semibold"
+                            onClick={() => setIsOpen(false)}
                           >
                             Sign Up
                           </Link>
@@ -157,6 +220,125 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+
+          {/* Mobile Menu */}
+          {isOpen && (
+            <div className="md:hidden mt-4 pb-4">
+              <div className="flex flex-col space-y-2 px-2">
+                <Link
+                  to="/"
+                  className={`px-4 py-2 rounded-lg transition ${
+                    location.pathname === "/"
+                      ? "bg-primary text-primary-content"
+                      : "hover:bg-base-200"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/apertments"
+                  className={`px-4 py-2 rounded-lg transition ${
+                    location.pathname === "/apertments"
+                      ? "bg-primary text-primary-content"
+                      : "hover:bg-base-200"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  Apartment
+                </Link>
+                <div className="px-4 py-2 rounded-lg hover:bg-base-200 transition">
+                  <div className="font-semibold mb-1">About</div>
+                  <div className="flex flex-col pl-4 space-y-1">
+                    <Link
+                      to="/about"
+                      className={`py-1 ${
+                        location.pathname === "/about" ? "text-primary" : ""
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      About Us
+                    </Link>
+                    <Link
+                      to="/faq"
+                      className={`py-1 flex items-center gap-2 ${
+                        location.pathname === "/faq" ? "text-primary" : ""
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <FaQuestionCircle /> FAQ
+                    </Link>
+                    <Link
+                      to="/terms"
+                      className={`py-1 flex items-center gap-2 ${
+                        location.pathname === "/terms" ? "text-primary" : ""
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <FaFileContract /> Terms
+                    </Link>
+                    <Link
+                      to="/privacy"
+                      className={`py-1 flex items-center gap-2 ${
+                        location.pathname === "/privacy" ? "text-primary" : ""
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <FaLock /> Privacy
+                    </Link>
+                  </div>
+                </div>
+                <Link
+                  to="/contact"
+                  className={`px-4 py-2 rounded-lg transition ${
+                    location.pathname === "/contact"
+                      ? "bg-primary text-primary-content"
+                      : "hover:bg-base-200"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  Contact
+                </Link>
+                {user ? (
+                  <>
+                    <Link
+                      to="/dashboard"
+                      className="px-4 py-2 rounded-lg hover:bg-base-200 transition"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Dashboard
+                    </Link>
+                    <button
+                      onClick={() => {
+                        logOut();
+                        setIsOpen(false);
+                      }}
+                      className="px-4 py-2 text-left rounded-lg hover:bg-base-200 transition"
+                    >
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      to="/login"
+                      className="px-4 py-2 rounded-lg hover:bg-base-200 transition flex items-center gap-2"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <FiLogIn /> Login
+                    </Link>
+                    <Link
+                      to="/signup"
+                      className="px-4 py-2 rounded-lg hover:bg-base-200 transition"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Sign Up
+                    </Link>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
         </Container>
       </div>
     </div>

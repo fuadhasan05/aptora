@@ -86,7 +86,7 @@ const ContactPage = () => {
             : "from-primary to-secondary "
         } text-white py-20`}
       >
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-2 md:px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <MdOutlineContactSupport className="text-5xl mx-auto mb-4" />
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
