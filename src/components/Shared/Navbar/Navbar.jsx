@@ -1,22 +1,22 @@
 import Container from "../Container";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
-import { FaSun, FaMoon } from "react-icons/fa"; // New icons
+import { FaSun, FaMoon } from "react-icons/fa";
 import { useState } from "react";
 import { Link, useLocation } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import avatarImg from "../../../assets/images/placeholder.jpg";
 import logo from "../../../assets/images/logo-square.png";
-import { useTheme } from "../../../context/ThemeContext"; // New import
+import { useTheme } from "../../../context/ThemeContext";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { theme, toggleTheme } = useTheme(); // Get theme context
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="fixed w-full z-50 bg-base-100 text-base-content">
+    <div className="sticky top-0 z-50 w-full bg-base-100 text-base-content -mb-25">
       <div className="py-3">
         <Container>
           <div className="container mx-auto px-2 md:px-4 flex flex-row items-center justify-between gap-3 md:gap-0">
@@ -65,6 +65,16 @@ const Navbar = () => {
                 }`}
               >
                 About
+              </Link>
+              <Link
+                to="/contact"
+                className={`text-lg font-semibold hidden md:block transition duration-300 ${
+                  location.pathname === "/contact"
+                    ? "text-primary underline underline-offset-4 decoration-2"
+                    : "hover:text-primary"
+                }`}
+              >
+                Contact
               </Link>
             </div>
 

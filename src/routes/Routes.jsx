@@ -21,6 +21,10 @@ import MakePayment from "../pages/Dashboard/Member/MakePayment";
 import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
 import CheckoutForm from "../components/Form/CheckoutForm";
 import About from "../pages/About/About";
+import Faq from "../pages/Resources/Faq";
+import Privacy from "../pages/Resources/Privacy";
+import Terms from "../pages/Resources/Terms";
+import Contact from "../pages/Resources/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +44,19 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      { path: "faq", element: <Faq /> },
+      {
+        path: "terms",
+        element: <Terms />,
+      },
+      {
+        path: "privacy",
+        element: <Privacy />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
       },
     ],
   },

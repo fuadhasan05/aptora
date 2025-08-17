@@ -22,7 +22,7 @@ const Banner = () => {
   }, [images.length]);
 
   return (
-    <div className="relative w-full h-[400px] md:h-[650px] overflow-hidden rounded-none shadow-lg -mt-[50px]">
+    <div className="relative w-full h-[400px] md:h-[650px] overflow-hidden rounded-none shadow-lg">
       {/* Images */}
       {images.map((img, index) => (
         <img
