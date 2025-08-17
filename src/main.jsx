@@ -6,7 +6,7 @@ import { router } from "./routes/Routes";
 import AuthProvider from "./providers/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ThemeProvider } from "./context/ThemeContext"; // New import
+import { ThemeProvider } from "./context/ThemeContext"; 
 
 // Create a client
 const queryClient = new QueryClient();
