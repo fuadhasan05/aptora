@@ -1,7 +1,14 @@
 import Container from "../Container";
 import { AiOutlineMenu, AiOutlineDown } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
-import { FaSun, FaMoon, FaQuestionCircle, FaFileContract, FaLock } from "react-icons/fa";
+import {
+  FaSun,
+  FaMoon,
+  FaQuestionCircle,
+  FaFileContract,
+  FaLock,
+} from "react-icons/fa";
+import { FcAbout } from "react-icons/fc";
 import { useState } from "react";
 import { Link, useLocation } from "react-router";
 import useAuth from "../../../hooks/useAuth";
@@ -57,7 +64,7 @@ const Navbar = () => {
               >
                 Apartment
               </Link>
-              
+
               {/* About Dropdown */}
               <div className="relative hidden md:block">
                 <button
@@ -72,11 +79,15 @@ const Navbar = () => {
                   }`}
                 >
                   About
-                  <AiOutlineDown className={`text-xs transition-transform ${isAboutOpen ? 'rotate-180' : ''}`} />
+                  <AiOutlineDown
+                    className={`text-xs transition-transform ${
+                      isAboutOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
-                
+
                 {isAboutOpen && (
-                  <div 
+                  <div
                     className="absolute rounded-xl shadow-xl w-48 bg-base-100 overflow-hidden right-0 top-8 text-sm border border-base-200"
                     onMouseLeave={() => setIsAboutOpen(false)}
                   >
@@ -86,7 +97,7 @@ const Navbar = () => {
                         className="px-4 py-3 hover:bg-base-200 transition font-semibold flex items-center gap-2"
                         onClick={() => setIsAboutOpen(false)}
                       >
-                        About Us
+                        <FcAbout className="text-primary" /> About Us
                       </Link>
                       <Link
                         to="/faq"
@@ -100,20 +111,21 @@ const Navbar = () => {
                         className="px-4 py-3 hover:bg-base-200 transition font-semibold flex items-center gap-2"
                         onClick={() => setIsAboutOpen(false)}
                       >
-                        <FaFileContract className="text-primary" /> Terms
+                        <FaFileContract className="text-primary" /> Terms &
+                        Conditions
                       </Link>
                       <Link
                         to="/privacy"
                         className="px-4 py-3 hover:bg-base-200 transition font-semibold flex items-center gap-2"
                         onClick={() => setIsAboutOpen(false)}
                       >
-                        <FaLock className="text-primary" /> Privacy
+                        <FaLock className="text-primary" /> Privacy Policy
                       </Link>
                     </div>
                   </div>
                 )}
               </div>
-              
+
               <Link
                 to="/contact"
                 className={`text-lg font-semibold hidden md:block transition duration-300 ${
@@ -159,7 +171,7 @@ const Navbar = () => {
                     <img
                       className="rounded-full border border-base-content/20"
                       referrerPolicy="no-referrer"
-                      src={user && user.photoURL ? user.photoURL  : avatarImg}
+                      src={user && user.photoURL ? user.photoURL : avatarImg}
                       alt="profile"
                       height="32"
                       width="32"
