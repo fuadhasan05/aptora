@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { TbFidgetSpinner } from "react-icons/tb";
 import LoadingSpinner from "../../components/Shared/LoadingSpinner";
 import { saveUserInDb } from "../../api/utils";
+import Button from "../../components/Shared/Button/Button";
 
 const Login = () => {
   const { signIn, signInWithGoogle, loading, user } = useAuth();
@@ -76,11 +77,23 @@ const Login = () => {
   };
   return (
     <div className="flex justify-center items-center min-h-screen bg-white">
-      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
+      <div className="flex flex-col max-w-lg w-full p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
         <div className="mb-8 text-center">
-          <h1 className="my-3 text-4xl font-bold">Log In</h1>
+          <h1 className="my-3 text-4xl font-bold">Log In to Aptora</h1>
           <p className="text-sm text-gray-400">
             Sign in to access your account
+          </p>
+        </div>
+        {/* Demo User */}
+        <div className="mb-4 p-3 bg-yellow-100 text-yellow-900 rounded border border-yellow-300">
+          <p className="mb-2">
+            <strong>Use this if you don't want to create account:</strong>
+          </p>
+          <p>
+            Email: <code>aptora@admin.com</code>
+          </p>
+          <p>
+            Password: <code>Pa$$w0rd!</code>
           </p>
         </div>
         <form
@@ -123,23 +136,15 @@ const Login = () => {
           </div>
 
           <div>
-            <button
-              type="submit"
-              className="bg-blue-500 w-full rounded-md py-3 text-white"
-            >
+            <Button type="submit" variant="primary" className="w-full mt-4">
               {loading ? (
                 <TbFidgetSpinner className="animate-spin m-auto" />
               ) : (
                 "Continue"
               )}
-            </button>
+            </Button>
           </div>
         </form>
-        <div className="space-y-1">
-          <button className="text-xs hover:underline hover:text-blue-500 text-gray-400">
-            Forgot password?
-          </button>
-        </div>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
           <p className="px-3 text-sm dark:text-gray-400">
@@ -149,7 +154,7 @@ const Login = () => {
         </div>
         <div
           onClick={handleGoogleSignIn}
-          className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
+          className="w-full mx-auto rounded-md hover:bg-gray-300 flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
         >
           <FcGoogle size={32} />
 

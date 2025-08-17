@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import { toast } from "react-hot-toast";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { imageUpload, saveUserInDb } from "../../api/utils";
+import Button from "../../components/Shared/Button/Button";
 
 const SignUp = () => {
   const { createUser, updateUserProfile, signInWithGoogle, loading } =
@@ -80,11 +81,23 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white">
-      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
+    <div className="flex justify-center items-center bg-white">
+      <div className="flex flex-col max-w-lg p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
         <div className="mb-8 text-center">
-          <h1 className="my-3 text-4xl font-bold">Sign Up</h1>
+          <h1 className="my-3 text-4xl font-bold">Create your account</h1>
           <p className="text-sm text-gray-400">Welcome to Aptora</p>
+        </div>
+         {/* Demo User */}
+        <div className="mb-4 p-3 bg-yellow-100 text-yellow-900 rounded border border-yellow-300">
+          <p className="mb-2">
+            <strong>Use this in Login form, if you don't want to create account.</strong>
+          </p>
+          <p>
+            Email: <code>aptora@admin.com</code>
+          </p>
+          <p>
+            Password: <code>Pa$$w0rd!</code>
+          </p>
         </div>
         <form
           onSubmit={handleSubmit}
@@ -111,7 +124,7 @@ const SignUp = () => {
                 Select Image:
               </label>
               <input
-                className="bg-gray-200 cursor-pointer"
+                className="bg-gray-200 w-full px-3 py-2 cursor-pointer rounded-md border border-gray-300"
                 type="file"
                 id="image"
                 name="image"
@@ -151,16 +164,13 @@ const SignUp = () => {
           </div>
 
           <div>
-            <button
-              type="submit"
-              className="bg-blue-500 w-full rounded-md py-3 text-white"
-            >
+            <Button type="submit" variant="primary" className="w-full mt-4">
               {loading ? (
                 <TbFidgetSpinner className="animate-spin m-auto" />
               ) : (
                 "Continue"
               )}
-            </button>
+            </Button>
           </div>
         </form>
         <div className="flex items-center pt-4 space-x-1">
@@ -172,7 +182,7 @@ const SignUp = () => {
         </div>
         <div
           onClick={handleGoogleSignIn}
-          className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
+          className="w-full mx-auto rounded-md hover:bg-gray-300 flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
         >
           <FcGoogle size={32} />
 
