@@ -1,30 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./Card";
 
-const CardList = ({ apartments }) => {
+const CardList = ({ apartments = [] }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [minRent, setMinRent] = useState("");
   const [maxRent, setMaxRent] = useState("");
+  const [filteredApartments, setFilteredApartments] = useState([]);
+  const [currentApartments, setCurrentApartments] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
 
   const apartmentsPerPage = 6;
 
-  // Filter apartments: hide rented & filter by rent range
-  const filteredApartments = apartments.filter((apartment) => {
-    // 1. Hide apartments with status: rented
-    if (apartment.status === "rented") return false;
+  useEffect(() => {
+    // Ensure apartments is an array before filtering
+    if (!Array.isArray(apartments)) {
+      console.error("apartments is not an array:", apartments);
+      setFilteredApartments([]);
+      return;
+    }
 
-    // 2. Rent filter
-    const rent = parseInt(apartment.rent);
-    const min = minRent ? parseInt(minRent) : 0;
-    const max = maxRent ? parseInt(maxRent) : Infinity;
-    return rent >= min && rent <= max;
-  });
+    // Filter apartments: hide rented & filter by rent range
+    const filtered = apartments.filter((apartment) => {
+      // 1. Check if apartment exists and has required properties
+      if (!apartment || typeof apartment !== 'object') return false;
+      
+      // 2. Hide apartments with status: rented
+      if (apartment.status === "rented") return false;
 
-  // Pagination calculation
-  const totalPages = Math.ceil(filteredApartments.length / apartmentsPerPage);
-  const indexOfLast = currentPage * apartmentsPerPage;
-  const indexOfFirst = indexOfLast - apartmentsPerPage;
-  const currentApartments = filteredApartments.slice(indexOfFirst, indexOfLast);
+      // 3. Rent filter with validation
+      try {
+        const rent = parseInt(apartment.rent || 0);
+        const min = minRent ? parseInt(minRent) : 0;
+        const max = maxRent ? parseInt(maxRent) : Infinity;
+        return rent >= min && rent <= max;
+      } catch (error) {
+        console.error("Error parsing rent values:", error);
+        return false;
+      }
+    });
+
+    setFilteredApartments(filtered);
+  }, [apartments, minRent, maxRent]);
+
+  useEffect(() => {
+    // Pagination calculation
+    const total = Math.ceil(filteredApartments.length / apartmentsPerPage);
+    setTotalPages(total);
+
+    // Reset to page 1 if current page exceeds total pages
+    if (currentPage > total && total > 0) {
+      setCurrentPage(1);
+      return;
+    }
+
+    const indexOfLast = currentPage * apartmentsPerPage;
+    const indexOfFirst = indexOfLast - apartmentsPerPage;
+    setCurrentApartments(filteredApartments.slice(indexOfFirst, indexOfLast));
+  }, [filteredApartments, currentPage]);
 
   // Change page
   const handlePageChange = (pageNumber) => {
@@ -44,6 +76,15 @@ const CardList = ({ apartments }) => {
     setCurrentPage(1);
   };
 
+  // Early return if data is not loaded properly
+  if (!Array.isArray(apartments)) {
+    return (
+      <div className="max-w-6xl mx-auto px-4 py-16 text-center text-red-500">
+        Error: Apartments data is not available or in incorrect format
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-16">
       {/* Search Section */}
@@ -58,6 +99,7 @@ const CardList = ({ apartments }) => {
             value={minRent}
             onChange={handleInputChange(setMinRent)}
             className="border bg-white border-purple-300 rounded-lg px-4 py-2 w-full md:w-1/3 focus:outline-none"
+            min="0"
           />
           <input
             type="number"
@@ -65,6 +107,7 @@ const CardList = ({ apartments }) => {
             value={maxRent}
             onChange={handleInputChange(setMaxRent)}
             className="border bg-white border-purple-300 rounded-lg px-4 py-2 w-full md:w-1/3 focus:outline-none"
+            min="0"
           />
           <button
             onClick={handleClearFilters}
@@ -75,21 +118,31 @@ const CardList = ({ apartments }) => {
         </div>
       </div>
 
+      {/* Loading state */}
+      {apartments.length === 0 && (
+        <p className="text-center text-gray-500 text-lg font-medium py-10">
+          Loading apartments...
+        </p>
+      )}
+
       {/* Apartment Grid */}
       <div className="py-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {currentApartments.length > 0 ? (
           currentApartments.map((apartment) => (
-            <Card key={apartment._id} apartment={apartment} />
+            <Card 
+              key={apartment._id || apartment.id || Math.random()} 
+              apartment={apartment} 
+            />
           ))
-        ) : (
+        ) : apartments.length > 0 ? (
           <p className="col-span-full text-center text-gray-500 text-lg font-medium">
             😕 No apartments found in this rent range.
           </p>
-        )}
+        ) : null}
       </div>
 
       {/* Pagination */}
-      {filteredApartments.length > apartmentsPerPage && (
+      {totalPages > 1 && (
         <div className="flex justify-center items-center space-x-2 mt-8">
           {/* Previous Button */}
           <button
@@ -128,7 +181,7 @@ const CardList = ({ apartments }) => {
             }`}
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-          >
+            >
             Next
           </button>
         </div>
