@@ -7,125 +7,179 @@ import {
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaEnvelope,
+  FaBuilding,
+  FaUserTie,
+  FaFileAlt,
+  FaGithub,
 } from "react-icons/fa";
 import logo from "../../../assets/images/logo-square.png";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 text-white pt-16 pb-10  relative">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
-        {/* Logo & Tagline */}
+    <footer className="bg-base-100 text-base-content pt-16 pb-10 relative">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIj48L3JlY3Q+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIj48L3JlY3Q+PC9zdmc+')]"></div>
+
+      <div className="container mx-auto px-2 md:px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 relative z-10">
+        {/* Brand Column */}
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <img src={logo} alt="logo" className="w-12 h-12" />
-            <h2 className="text-2xl font-extrabold">APTORA</h2>
+            <img
+              src={logo}
+              alt="Aptora logo"
+              className="w-12 h-12 rounded-lg"
+            />
+            <h2 className="text-2xl font-bold  text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+              APTORA
+            </h2>
           </div>
-          <p className="text-sm leading-relaxed opacity-90">
-            Premium living apartments in Dhaka with modern facilities,
-            community-driven environment, and secure management.
+          <p className="text-sm leading-relaxed text-light/80 mb-4">
+            Premium property management solutions with modern facilities,
+            community-driven environment, and secure operations.
           </p>
+
+          <div className="flex space-x-4">
+            {[
+              {
+                icon: <FaGithub />,
+                color: "text-blue-500",
+                href: "https://github.com/fuadhasan05",
+              },
+              {
+                icon: <FaTwitter />,
+                color: "text-sky-400",
+                href: "https://x.com/fuad_hasan05",
+              },
+              {
+                icon: <FaLinkedinIn />,
+                color: "text-blue-600",
+                href: "https://www.linkedin.com/in/fuad05/",
+              },
+            ].map((social, index) => (
+              <a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                className={`${social.color} hover:scale-110 transition-transform duration-200 text-xl`}
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul className="space-y-3 text-sm">
-            <li>
-              <a
-                href="#about"
-                className="hover:text-yellow-300 transition duration-300"
-              >
-                About the Building
-              </a>
-            </li>
-            <li>
-              <a
-                href="#location"
-                className="hover:text-yellow-300 transition duration-300"
-              >
-                Location
-              </a>
-            </li>
-            <li>
-              <a
-                href="#coupons"
-                className="hover:text-yellow-300 transition duration-300"
-              >
-                Coupons
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="hover:text-yellow-300 transition duration-300"
-              >
-                Contact Us
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Contact Info */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-          <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2">
-              <FaMapMarkerAlt className="text-yellow-300" /> House #12, Road
-              #55, Gulshan-2, Dhaka 1212
-            </li>
-            <li className="flex items-center gap-2">
-              <FaPhoneAlt className="text-yellow-300" /> +880 1234-567890
-            </li>
-            <li className="flex items-center gap-2">
-              <FaEnvelope className="text-yellow-300" /> info@aptora.com
-            </li>
-          </ul>
-        </div>
-
-        {/* Social Links */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-          <div className="flex space-x-4">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-white text-blue-700 p-2 rounded-full hover:scale-110 transition shadow-md"
-            >
-              <FaFacebookF />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-white text-pink-600 p-2 rounded-full hover:scale-110 transition shadow-md"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-white text-blue-400 p-2 rounded-full hover:scale-110 transition shadow-md"
-            >
-              <FaTwitter />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-white text-blue-500 p-2 rounded-full hover:scale-110 transition shadow-md"
-            >
-              <FaLinkedinIn />
-            </a>
+          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <FaBuilding className="text-primary" /> Quick Links
+          </h3>
+          <div>
+            <ul className="space-y-3">
+              {[
+                { name: "Home", href: "/" },
+                { name: "About Us", href: "/about" },
+                { name: "Find Apertments", href: "/apertments" },
+                { name: "Contact", href: "/contact" },
+              ].map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.href}
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="hover:text-blue-700 transition flex items-center gap-2"
+                  >
+                    <span className="w-1 h-1 bg-blue-700 rounded-full"></span>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
+        </div>
+
+        {/* Resources */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <FaFileAlt className="text-primary" /> Resources
+          </h3>
+          <div>
+            <ul className="space-y-3">
+              {[
+                { name: "FAQ", href: "/faq" },
+                { name: "Privacy Policy", href: "/privacy" },
+                { name: "Terms of Service", href: "/terms" },
+              ].map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.href}
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="hover:text-blue-700 transition flex items-center gap-2"
+                  >
+                    <span className="w-1 h-1 bg-blue-700 rounded-full"></span>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Contact */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <FaUserTie className="text-primary" /> Contact Us
+          </h3>
+          <ul className="space-y-3 text-sm">
+            <li className="flex items-start gap-3 text-light/80">
+              <FaMapMarkerAlt className="text-primary mt-1 flex-shrink-0" />
+              <span>
+                House #12, Road #55, Gulshan-2, Dhaka 1212, Bangladesh
+              </span>
+            </li>
+            <li className="flex items-center gap-3 text-light/80">
+              <FaPhoneAlt className="text-primary" />
+              <a
+                href="tel:+8801234567890"
+                className="hover:text-primary transition-colors"
+              >
+                +880 1616 662095
+              </a>
+            </li>
+            <li className="flex items-center gap-3 text-light/80">
+              <FaEnvelope className="text-primary" />
+              <a
+                href="mailto:fuadhasan.web.com"
+                className="hover:text-primary transition-colors"
+              >
+                fuadhasan.web.com
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="text-center text-sm mt-12 border-t border-white/30 pt-6">
-        © {new Date().getFullYear()}{" "}
-        <span className="font-semibold">APTORA</span>. All rights reserved.
+      {/* Divider */}
+      <div className="w-full px-2 md:px-4 my-8 border-t border-light/20"></div>
+
+      {/* Bottom Bar */}
+      <div className="container mx-auto px-2 md:px-4 flex flex-col sm:flex-row justify-between items-center text-sm text-light/60">
+        <div>
+          © {new Date().getFullYear()}{" "}
+          <span className="font-semibold text-light">Aptora</span>. All rights
+          reserved.
+        </div>
+        <p className="mt-2 sm:mt-0">
+          Built with ❤️ by{" "}
+          <a
+            href="https://fuad-5.web.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors underline underline-offset-2"
+          >
+            Fuad Hasan
+          </a>
+        </p>
       </div>
     </footer>
   );
