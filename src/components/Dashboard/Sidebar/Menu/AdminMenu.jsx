@@ -33,11 +33,6 @@ const AdminMenu = () => {
         label="Admin Profile"
         address="admin-profile"
       />
-      <MenuItem
-        icon={MdAnnouncement}
-        label="Announcements"
-        address="/dashboard"
-      />
     </>
   );
 };

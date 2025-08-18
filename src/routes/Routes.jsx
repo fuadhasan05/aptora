@@ -25,6 +25,7 @@ import Faq from "../pages/Resources/Faq";
 import Privacy from "../pages/Resources/Privacy";
 import Terms from "../pages/Resources/Terms";
 import Contact from "../pages/Resources/Contact";
+import Overview from "../pages/Dashboard/Common/Overview";
 
 export const router = createBrowserRouter([
   {
@@ -72,6 +73,14 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: (
+          <PrivateRoute>
+            <Overview/>
+          </PrivateRoute>
+        ),
+      },
+       {
+        path: "announcements",
         element: (
           <PrivateRoute>
             <Announcement />
