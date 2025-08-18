@@ -41,7 +41,7 @@ const ManageCoupons = () => {
     <div className="container mx-auto px-4 sm:px-8">
       <div className="py-8">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">Manage Coupons</h2>
+          <h2 className="text-2xl font-bold dark:text-base-content text-gray-800">Manage Coupons</h2>
           <button
             onClick={() => setIsModalOpen(true)}
             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg"
@@ -56,13 +56,13 @@ const ManageCoupons = () => {
             <table className="min-w-full leading-normal">
               <thead>
                 <tr>
-                  <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
+                  <th className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
                     Coupon Code
                   </th>
-                  <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
+                  <th className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
                     Discount (%)
                   </th>
-                  <th className="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
+                  <th className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
                     Description
                   </th>
                 </tr>
@@ -72,13 +72,13 @@ const ManageCoupons = () => {
                 {coupons.length > 0 ? (
                   coupons.map((coupon) => (
                     <tr key={coupon._id}>
-                      <td className="px-5 py-5 bg-white text-sm text-purple-400 border-b border-gray-200 font-semibold">
+                      <td className="px-5 py-5 bg-white dark:bg-base-200 text-sm text-purple-400 border-b dark:border-base-300 border-gray-200 font-semibold">
                         {coupon.code}
                       </td>
-                      <td className="px-5 py-5 bg-white text-sm border-b border-gray-200">
+                      <td className="px-5 py-5 bg-white dark:bg-base-200 dark:text-base-content text-sm border-b dark:border-base-300 border-gray-200">
                         {coupon.discount}%
                       </td>
-                      <td className="px-5 py-5 bg-white text-sm border-b border-gray-200">
+                      <td className="px-5 py-5 bg-white dark:bg-base-200 dark:text-base-content text-sm border-b dark:border-base-300 border-gray-200">
                         {coupon.description}
                       </td>
                     </tr>

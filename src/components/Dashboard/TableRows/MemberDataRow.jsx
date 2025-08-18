@@ -30,16 +30,16 @@ const MemberDataRow = ({ user }) => {
 
   return (
     <tr>
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        <p className="text-gray-900 whitespace-no-wrap">{name}</p>
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm">
+        <p className="text-gray-900 dark:text-base-content whitespace-no-wrap">{name}</p>
       </td>
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        <p className="text-gray-900 whitespace-no-wrap">{email}</p>
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm">
+        <p className="text-gray-900 dark:text-base-content whitespace-no-wrap">{email}</p>
       </td>
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        <p className="text-gray-900 whitespace-no-wrap">{role}</p>
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm">
+        <p className="text-gray-900 dark:text-base-content whitespace-no-wrap">{role}</p>
       </td>
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm">
         <p
           className={`${
             status === "requested"
@@ -52,7 +52,7 @@ const MemberDataRow = ({ user }) => {
           {status ? status : "unavailable"}
         </p>
       </td>
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm">
         <span
           onClick={() => setIsOpen(true)}
           className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
@@ -71,7 +71,7 @@ const MemberDataRow = ({ user }) => {
           userEmail={email}
         ></UpdateUserRoleModel>
       </td>
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm text-center">
         <button
           className="text-red-600 hover:text-red-800 transition-all duration-300 cursor-pointer"
           title="Remove"

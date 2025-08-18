@@ -231,6 +231,7 @@ const DashboardOverview = () => {
     <ConfigProvider>
       <Layout>
         {/* Header */}
+        <h2 className="text-3xl md:text-5xl text-center my-8">All Overview</h2>
 
         {/* Content */}
         <Content style={{ padding: 24 }}>

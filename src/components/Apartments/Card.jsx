@@ -56,7 +56,7 @@ const Card = ({ apartment }) => {
   return (
     <div
       key={_id}
-      className="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition duration-300"
+      className="bg-base-100 text-base-content border border-base-300 rounded-xl overflow-hidden hover:shadow-lg"
     >
       {/* Image */}
       <img
@@ -66,16 +66,16 @@ const Card = ({ apartment }) => {
       />
       {/* Details */}
       <div className="p-5">
-        <h3 className="text-xl font-semibold text-gray-800 mb-2">
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-base-content mb-2">
           Apartment No: {apartmentNo}
         </h3>
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-base-content">
           <strong>Floor:</strong> {floorNo}
         </p>
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-base-content">
           <strong>Block:</strong> {blockName}
         </p>
-        <p className="text-gray-700 font-semibold mt-2">Rent: ৳{rent}</p>
+        <p className="text-gray-700 dark:text-base-content font-semibold mt-2">Rent: ৳{rent}</p>
 
         {/* Agreement Button */}
         <Button

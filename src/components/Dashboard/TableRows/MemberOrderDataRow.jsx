@@ -7,7 +7,7 @@ const MemberOrderDataRow = () => {
   return (
     <tr>
       {/* Apartment Image */}
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <td className='px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm'>
         <div className='flex items-center'>
           <div className='flex-shrink-0'>
             <div className='block relative'>
@@ -22,27 +22,27 @@ const MemberOrderDataRow = () => {
       </td>
 
       {/* Floor Number */}
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <td className='px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'>2</p>
       </td>
 
       {/* Block Name */}
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <td className='px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'>B</p>
       </td>
 
       {/* Apartment Number */}
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <td className='px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'>205</p>
       </td>
 
       {/* Rent */}
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <td className='px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'>৳12,000</p>
       </td>
 
       {/* Agreement Button */}
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <td className='px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm'>
         <button
           onClick={() => setIsOpen(true)}
           className='relative disabled:cursor-not-allowed cursor-pointer inline-block px-4 py-1 font-semibold text-blue-900 leading-tight'

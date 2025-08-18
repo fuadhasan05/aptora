@@ -25,8 +25,8 @@ const MakeAnnouncement = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex justify-center items-center p-6">
-      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-xl border-t-4 border-blue-600">
+    <div className="min-h-screen bg-white dark:bg-base-100 flex justify-center items-center p-6">
+      <div className="bg-white dark:bg-base-200 shadow-xl rounded-2xl p-8 w-full max-w-xl border-t-4 border-blue-600">
         {/* Icon + Heading */}
         <div className="flex items-center justify-center mb-6">
           <FaBullhorn className="text-blue-600 text-4xl mr-2 animate-bounce" />
@@ -39,7 +39,7 @@ const MakeAnnouncement = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Title */}
           <div>
-            <label className="block text-gray-700 font-semibold mb-2">
+            <label className="block text-gray-700 dark:text-base-content font-semibold mb-2">
               Announcement Title
             </label>
             <input
@@ -54,7 +54,7 @@ const MakeAnnouncement = () => {
 
           {/* Description */}
           <div>
-            <label className="block text-gray-700 font-semibold mb-2">
+            <label className="block text-gray-700 dark:text-base-content font-semibold mb-2">
               Description
             </label>
             <textarea

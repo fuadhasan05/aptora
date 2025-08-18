@@ -52,28 +52,28 @@ const AgreementDataRow = ({ request }) => {
 
   return (
     <tr>
-      <td className="px-5 py-3 bg-white text-sm border-b border-gray-200">
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm">
         {request.userName}
       </td>
-      <td className="px-5 py-3 bg-white text-sm border-b border-gray-200">
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm">
         {request.userEmail}
       </td>
-      <td className="px-5 py-3 bg-white text-sm border-b text-center border-gray-200">
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm text-center">
         {request.floorNo}
       </td>
-      <td className="px-5 py-3 bg-white text-sm border-b text-center border-gray-200">
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm text-center">
         {request.blockName}
       </td>
-      <td className="px-5 py-3 bg-white text-sm border-b text-center border-gray-200">
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm text-center">
         {request.apartmentNo}
       </td>
-      <td className="px-5 py-3 bg-white text-sm border-b text-center border-gray-200">
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm text-center">
         ৳{request.rent}
       </td>
-      <td className="px-5 py-3 bg-white text-sm border-b text-center border-gray-200">
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm text-center">
         {request.requestDate.split("T")[0]}
       </td>
-      <td className="px-5 py-3 bg-white text-sm border-b text-center border-gray-200">
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm text-center">
         <span
           className={`px-2 py-1 rounded text-xs ${
             request.status === "pending"
@@ -86,7 +86,7 @@ const AgreementDataRow = ({ request }) => {
           {request.status}
         </span>
       </td>
-      <td className="px-5 py-3 bg-white text-sm border-b border-gray-200 text-center flex flex-col gap-2">
+      <td className="px-5 py-5 border-b border-gray-200 dark:border-base-300 bg-white dark:bg-base-200 text-sm text-center flex flex-col gap-2">
         {request.status === "pending" && (
           <>
             <button

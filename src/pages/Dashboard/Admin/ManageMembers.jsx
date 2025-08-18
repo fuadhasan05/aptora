@@ -27,37 +27,37 @@ const ManageMembers = () => {
                   <tr>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
+                      className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold"
                     >
                       Name
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
+                      className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
                     >
                       Email
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
+                      className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
                     >
                       Role
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
+                      className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
+                      className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
                     >
                       Action
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
+                      className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold"
                     >
                       Remove
                     </th>

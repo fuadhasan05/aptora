@@ -21,12 +21,12 @@ const CouponsModal = ({ isModalOpen, setIsModalOpen, handleAddCoupon }) => {
 
   return (
     <div className="fixed inset-0 bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-xl">
-        <h3 className="text-xl font-bold mb-4 text-gray-800">Add New Coupon</h3>
+      <div className="bg-white dark:bg-base-200 dark:text-base-content p-6 rounded-lg w-full max-w-md shadow-xl">
+        <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-base-content">Add New Coupon</h3>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Coupon Code */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700">
+            <label className="block text-sm font-semibold text-gray-700 dark:text-base-content">
               Coupon Code
             </label>
             <input
@@ -41,7 +41,7 @@ const CouponsModal = ({ isModalOpen, setIsModalOpen, handleAddCoupon }) => {
 
           {/* Discount Percentage */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700">
+            <label className="block text-sm font-semibold text-gray-700 dark:text-base-content">
               Discount Percentage
             </label>
             <input
@@ -58,7 +58,7 @@ const CouponsModal = ({ isModalOpen, setIsModalOpen, handleAddCoupon }) => {
 
           {/* Description */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700">
+            <label className="block text-sm font-semibold text-gray-700 dark:text-base-content">
               Description
             </label>
             <textarea

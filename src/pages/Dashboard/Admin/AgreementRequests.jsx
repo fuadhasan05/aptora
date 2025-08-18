@@ -25,31 +25,31 @@ const AgreementRequests = () => {
               {/* Table Header */}
               <thead>
                 <tr>
-                  <th className="px-5 py-2 bg-white border-b border-gray-200 text-left text-sm uppercase font-bold">
+                  <th className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
                     User Name
                   </th>
-                  <th className="px-5 py-2 bg-white border-b border-gray-200 text-left text-sm uppercase font-bold">
+                  <th className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
                     Email
                   </th>
-                  <th className="px-5 py-2 bg-white border-b border-gray-200 text-left text-sm uppercase font-bold">
+                  <th className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
                     Floor
                   </th>
-                  <th className="px-5 py-2 bg-white border-b border-gray-200 text-left text-sm uppercase font-bold">
+                  <th className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
                     Block
                   </th>
-                  <th className="px-5 py-2 bg-white border-b border-gray-200 text-left text-sm uppercase font-bold">
+                  <th className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
                     Apartment
                   </th>
-                  <th className="px-5 py-2 bg-white border-b border-gray-200 text-left text-sm uppercase font-bold">
+                  <th className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
                     Rent
                   </th>
-                  <th className="px-5 py-2 bg-white border-b border-gray-200 text-left text-sm uppercase font-bold">
+                  <th className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
                     Date
                   </th>
-                  <th className="px-5 py-2 bg-white border-b border-gray-200 text-left text-sm uppercase font-bold">
+                  <th className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
                     Status
                   </th>
-                  <th className="px-5 py-2 bg-white border-b border-gray-200 text-center text-sm uppercase font-bold">
+                  <th className="px-5 py-3 bg-white dark:bg-base-300 dark:text-base-content border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-bold">
                     Actions
                   </th>
                 </tr>
