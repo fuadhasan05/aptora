@@ -28,11 +28,6 @@ const AdminMenu = () => {
         label="Manage Coupons"
         address="manage-coupons"
       />
-      <MenuItem
-        icon={MdAdminPanelSettings}
-        label="Admin Profile"
-        address="admin-profile"
-      />
     </>
   );
 };

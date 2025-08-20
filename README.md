@@ -8,7 +8,7 @@ Aptora is a modern web application for managing apartment buildings, agreements,
 
 ## Preview
 
-![Aptora Screenshot](/public/Aptora-scernshot.png)
+![Aptora Screenshot](/public//Aptora-live.png)
 
 ## Technologies Used
 
@@ -55,7 +55,7 @@ Follow these steps to run the project locally:
 1. **Clone the repository:**
    ```sh
    git clone https://github.com/fuadhasan05/aptora.git
-   cd aptora/client
+   cd aptora
    ```
 
 2. **Install dependencies:**

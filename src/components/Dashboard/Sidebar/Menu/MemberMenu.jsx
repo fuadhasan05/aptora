@@ -5,11 +5,6 @@ import { CgProfile } from "react-icons/cg";
 const MemberMenu = () => {
   return (
     <>
-    <MenuItem
-        icon={CgProfile}
-        label="My Profile"
-        address="my-profile"
-      />
       <MenuItem
         icon={BiDollarCircle}
         label="Make Payment"

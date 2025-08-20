@@ -5,18 +5,15 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../layouts/DashboardLayout";
-import Profile from "../pages/Dashboard/Common/Profile";
 import MainLayout from "../layouts/MainLayout";
 import ManageMembers from "../pages/Dashboard/Admin/ManageMembers";
 import AgreementRequests from "../pages/Dashboard/Admin/AgreementRequests";
 import ManageCoupons from "../pages/Dashboard/Admin/ManageCoupons";
-import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
 import Apartments from "../pages/Apartment/Apartments";
 import Announcement from "../pages/Dashboard/Common/Announcement";
 import MakeAnnouncement from "../pages/Dashboard/Admin/MakeAnnouncement";
 import AdminRoute from "./AdminRoute";
 import MemberRoute from "./MemberRoute";
-import MyProfile from "../pages/Dashboard/Member/MyProfile";
 import MakePayment from "../pages/Dashboard/Member/MakePayment";
 import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
 import CheckoutForm from "../components/Form/CheckoutForm";
@@ -26,6 +23,7 @@ import Privacy from "../pages/Resources/Privacy";
 import Terms from "../pages/Resources/Terms";
 import Contact from "../pages/Resources/Contact";
 import Overview from "../pages/Dashboard/Common/Overview";
+import MyProfile from "../pages/Dashboard/Common/MyProfile";
 
 export const router = createBrowserRouter([
   {
@@ -88,14 +86,6 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "profile",
-        element: (
-          <PrivateRoute>
-            <Profile />
-          </PrivateRoute>
-        ),
-      },
-      {
         path: "manage-members",
         element: (
           <PrivateRoute>
@@ -136,22 +126,10 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "admin-profile",
-        element: (
-          <PrivateRoute>
-            <AdminRoute>
-              <AdminProfile />
-            </AdminRoute>
-          </PrivateRoute>
-        ),
-      },
-      {
         path: "my-profile",
         element: (
           <PrivateRoute>
-            <MemberRoute>
               <MyProfile />
-            </MemberRoute>
           </PrivateRoute>
         ),
       },

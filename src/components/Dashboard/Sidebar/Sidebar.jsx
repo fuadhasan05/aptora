@@ -14,6 +14,7 @@ import logo from "../../../assets/images/logo-square.png";
 import { useTheme } from "../../../context/ThemeContext";
 import { RiTimelineView } from "react-icons/ri";
 import { MdAnnouncement } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
 
 const Sidebar = () => {
   const { logOut } = useAuth();
@@ -106,6 +107,11 @@ const Sidebar = () => {
                 icon={MdAnnouncement}
                 label="Announcements"
                 address="/dashboard/announcements"
+              />
+              <MenuItem
+                icon={CgProfile}
+                label="My Profile"
+                address="/dashboard/my-profile"
               />
               {role === "user" && <UserMenu />}
               {role === "member" && <MemberMenu />}
