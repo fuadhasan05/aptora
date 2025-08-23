@@ -52,7 +52,7 @@ const Privacy = () => {
       <div>
         <h3 className="text-2xl font-bold mb-4">Privacy Policy</h3>
         <p className="mb-4">
-          Welcome to [Your Company/Website Name] ("we," "us," or "our"). We
+          Welcome to Aptora. We
           respect your privacy and are committed to protecting your personal
           data. This Privacy Policy explains how we collect, use, disclose, and
           safeguard your information when you visit our website or use our

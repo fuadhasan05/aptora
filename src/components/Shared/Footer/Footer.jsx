@@ -157,11 +157,8 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Divider */}
-      <div className="w-full px-2 md:px-4 my-8 border-t border-light/20"></div>
-
       {/* Bottom Bar */}
-      <div className="container mx-auto px-2 md:px-4 flex flex-col sm:flex-row justify-between items-center text-sm text-light/60">
+      <div className="container mx-auto border-t border-gray-800 mt-8 pt-8 px-2 md:px-4 flex flex-col sm:flex-row justify-between items-center text-sm text-light/60">
         <div>
           © {new Date().getFullYear()}{" "}
           <span className="font-semibold text-light">Aptora</span>. All rights
